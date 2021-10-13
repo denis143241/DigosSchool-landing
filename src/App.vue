@@ -19,6 +19,7 @@
     <div class="container">
       <div class="row header-main-info">
         <div class="col m8">
+          <img src="./assets/Ellipse.png">
           <div
             class="header-title"
             :class="{
@@ -154,9 +155,12 @@ body {
 .header-page {
   font-family: "Open Sans", sans-serif;
   height: 100vh;
-  background: #f8f8f8 url("assets/main-bg.png") no-repeat center center;
+  background: #f8f8f8;
 }
 .header-title {
+  top: 0;
+  left: 0;
+  position: absolute;
   font-family: "Open Sans", sans-serif;
   font-size: 65px;
   font-weight: 700;
@@ -182,10 +186,11 @@ nav {
   }
 }
 .header-main-info {
+  position: relative;
   margin-top: 90px;
 }
 .btns {
-  margin-top: 140px;
+  margin-top: 20px;
 }
 // При появлении флага выводить его с animate bounceIn
 .circle-flag {
@@ -193,12 +198,12 @@ nav {
   background: #000;
   position: absolute;
   transition: 0.1s all; // Добавить delay мб и не надо.
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  box-shadow: 4px 4px 7px rgba(0, 0, 0, 0.25);
 }
 #first {
-  width: 100px;
-  height: 100px;
-  margin-left: 20%;
+  width: 120px;
+  height: 120px;
+  
   background: #f17f77 url("assets/germany.png") no-repeat center center;
   background-size: 100%;
 }
@@ -221,9 +226,9 @@ nav {
   background-color: #f59a9a;
 }
 #fiveth {
-  width: 30px;
-  height: 30px;
-  margin-left: 40%;
+  width: 40px;
+  height: 40px;
+  margin-left: 20%;
   background-color: #e45a5a;
 }
 .my-btn {
