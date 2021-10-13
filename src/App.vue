@@ -18,8 +18,18 @@
     </nav>
     <div class="container">
       <div class="row header-main-info">
-        <div class="col m6">
-          <div class="header-title">Discover the<br />world with us!</div>
+        <div class="col m8">
+          <div
+            class="header-title"
+            :class="{
+              'fz-50':
+                firstLineTitle === foreignBox[1].title1 ||
+                firstLineTitle === foreignBox[2].title1 ||
+                firstLineTitle === foreignBox[4].title1,
+            }"
+          >
+            {{ firstLineTitle }}<br />{{ secondLineTitle }}
+          </div>
           <div class="btns">
             <div class="row">
               <div class="col m4">
@@ -31,40 +41,21 @@
             </div>
           </div>
         </div>
-        <div class="col m6 flags">
-          <div class="circlesFlag-row">
+        <div class="col m4 flags">
+          <div
+            v-for="circle in circles"
+            :key="circle.id"
+            class="circlesFlag-row"
+          >
             <div
               class="circle-flag"
-              id="first"
-              :style="{ left: `${posX}%`, top: `${posY}%` }"
-            ></div>
-          </div>
-          <div class="circlesFlag-row">
-            <div
-              class="circle-flag"
-              id="second"
-              :style="{ left: `${posX}%`, top: `${-posY}%` }"
-            ></div>
-          </div>
-          <div class="circlesFlag-row">
-            <div
-              class="circle-flag"
-              id="third"
-              :style="{ left: `${-posX}%`, top: `${posY}%` }"
-            ></div>
-          </div>
-          <div class="circlesFlag-row">
-            <div
-              class="circle-flag"
-              id="forth"
-              :style="{ left: `${-posX}%`, top: `${-posY}%` }"
-            ></div>
-          </div>
-          <div class="circlesFlag-row">
-            <div
-              class="circle-flag"
-              id="fiveth"
-              :style="{ left: `${posX}%`, top: `${posY}%` }"
+              :id="circle.id"
+              :style="{
+                left: `${circle.sign1}${posX}%`,
+                top: `${circle.sign2}${posY}%`,
+                background: `url(${img}) no-repeat center center`,
+                backgroundSize: '100%',
+              }"
             ></div>
           </div>
         </div>
@@ -75,11 +66,55 @@
 
 <script>
 export default {
+  mounted() {
+    const randEl = Math.floor(Math.random() * 5);
+    let currentLanguage = this.foreignBox[randEl];
+    this.firstLineTitle = currentLanguage.title1;
+    this.secondLineTitle = currentLanguage.title2;
+    this.img = currentLanguage.img;
+  },
   data() {
     return {
       color: "#555",
       mouseX: null,
       mouseY: null,
+      firstLineTitle: "",
+      secondLineTitle: "",
+      img: "",
+      circles: [
+        { sign1: "", sign2: "", id: "first" },
+        { sign1: "", sign2: "-", id: "second" },
+        { sign1: "-", sign2: "", id: "third" },
+        { sign1: "-", sign2: "-", id: "forth" },
+        { sign1: "", sign2: "", id: "fiveth" },
+      ],
+      foreignBox: [
+        {
+          title1: "Doscover the",
+          title2: "world with us!",
+          img: "/img/united-kingdom.6c562e43.png",
+        },
+        {
+          title1: "¡Descubre el",
+          title2: "mundo con nosotros!",
+          img: "/img/spain.db9f43d8.png",
+        },
+        {
+          title1: "Scopri il",
+          title2: "mondo con noi!",
+          img: "/img/italy.ec34fab4.png",
+        },
+        {
+          title1: "Entdecke mit",
+          title2: "uns die welt!",
+          img: "/img/germany.5deb47d3.png",
+        },
+        {
+          title1: "Découvrez le",
+          title2: "monde avec nous!",
+          img: "/img/france.3ac5c01c.png",
+        },
+      ],
     };
   },
   methods: {
@@ -95,7 +130,7 @@ export default {
     posY() {
       // Исправить потенциальную ошибку связанную с высотой экрана InnerHeight
       // будет возвращать высоту всего экрана, а нам нужна высотка конкретного блока
-      return (this.mouseY / window.innerHeight) * 7;
+      return (this.mouseY / 792) * 7;
     },
   },
 };
@@ -152,6 +187,7 @@ nav {
 .btns {
   margin-top: 140px;
 }
+// При появлении флага выводить его с animate bounceIn
 .circle-flag {
   border-radius: 100%;
   background: #000;
@@ -162,8 +198,8 @@ nav {
 #first {
   width: 100px;
   height: 100px;
-  margin-left: 40%;
-  background: #f17f77 url('assets/france.png') no-repeat center center;
+  margin-left: 20%;
+  background: #f17f77 url("assets/germany.png") no-repeat center center;
   background-size: 100%;
 }
 #second {
@@ -175,7 +211,7 @@ nav {
 #third {
   width: 60px;
   height: 60px;
-  margin-left: 50%;
+  margin-left: 40%;
   background-color: #c77069;
 }
 #forth {
@@ -202,5 +238,8 @@ nav {
 }
 .my-red {
   background: #f1968f;
+}
+.fz-50 {
+  font-size: 60px !important;
 }
 </style>
