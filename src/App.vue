@@ -19,18 +19,16 @@
     <div class="container">
       <div class="row header-main-info">
         <div class="col m8">
-          <img src="./assets/Ellipse.png">
-          <div
-            class="header-title"
-            :class="{
-              'fz-50':
-                firstLineTitle === foreignBox[1].title1 ||
-                firstLineTitle === foreignBox[2].title1 ||
-                firstLineTitle === foreignBox[4].title1,
-            }"
+          <img src="./assets/Ellipse.png" />
+          <transition
+            :duration="1500"
+            enter-active-class="animated fadeIn"
+            leave-active-class="animated fadeOut"
           >
-            {{ firstLineTitle }}<br />{{ secondLineTitle }}
-          </div>
+            <div :key="firstLineTitle" class="header-title">
+              {{ firstLineTitle }}<br />{{ secondLineTitle }}
+            </div>
+          </transition>
           <div class="btns">
             <div class="row">
               <div class="col m4">
@@ -48,16 +46,19 @@
             :key="circle.id"
             class="circlesFlag-row"
           >
-            <div
-              class="circle-flag"
-              :id="circle.id"
-              :style="{
-                left: `${circle.sign1}${posX}%`,
-                top: `${circle.sign2}${posY}%`,
-                background: `url(${img}) no-repeat center center`,
-                backgroundSize: '100%',
-              }"
-            ></div>
+            <transition name="my-flip">
+              <div
+                :key="firstLineTitle"
+                class="circle-flag"
+                :id="circle.id"
+                :style="{
+                  left: `${circle.sign1}${posX}%`,
+                  top: `${circle.sign2}${posY}%`,
+                  background: `url(${img}) no-repeat center center`,
+                  backgroundSize: '100%',
+                }"
+              ></div>
+            </transition>
           </div>
         </div>
       </div>
@@ -67,12 +68,23 @@
 
 <script>
 export default {
-  mounted() {
-    const randEl = Math.floor(Math.random() * 5);
-    let currentLanguage = this.foreignBox[randEl];
+  created() {
+    let currentLanguage = this.foreignBox[0];
     this.firstLineTitle = currentLanguage.title1;
     this.secondLineTitle = currentLanguage.title2;
     this.img = currentLanguage.img;
+  },
+  mounted() {
+    setInterval(() => {
+      let randEl = Math.floor(Math.random() * this.foreignBox.length);
+      while (this.img == this.foreignBox[randEl].img) {
+        randEl = Math.floor(Math.random() * this.foreignBox.length);
+      }
+      let currentLanguage = this.foreignBox[randEl];
+      this.firstLineTitle = currentLanguage.title1;
+      this.secondLineTitle = currentLanguage.title2;
+      this.img = currentLanguage.img;
+    }, 10000);
   },
   data() {
     return {
@@ -82,38 +94,39 @@ export default {
       firstLineTitle: "",
       secondLineTitle: "",
       img: "",
+      seems: { name: 1 },
       circles: [
-        { sign1: "", sign2: "", id: "first" },
-        { sign1: "", sign2: "-", id: "second" },
-        { sign1: "-", sign2: "", id: "third" },
-        { sign1: "-", sign2: "-", id: "forth" },
-        { sign1: "", sign2: "", id: "fiveth" },
+        { sign1: "", sign2: "", id: "first", sims: this.seems },
+        { sign1: "", sign2: "-", id: "second", sims: this.seems },
+        { sign1: "-", sign2: "", id: "third", sims: this.seems },
+        { sign1: "-", sign2: "-", id: "forth", sims: this.seems },
+        { sign1: "", sign2: "", id: "fiveth", sims: this.seems },
       ],
       foreignBox: [
         {
           title1: "Doscover the",
           title2: "world with us!",
-          img: "/img/united-kingdom.6c562e43.png",
+          img: require("./assets/united-kingdom.png"),
         },
         {
           title1: "¡Descubre el",
           title2: "mundo con nosotros!",
-          img: "/img/spain.db9f43d8.png",
+          img: require("./assets/spain.png"),
         },
         {
           title1: "Scopri il",
           title2: "mondo con noi!",
-          img: "/img/italy.ec34fab4.png",
+          img: require("./assets/italy.png"),
         },
         {
           title1: "Entdecke mit",
           title2: "uns die welt!",
-          img: "/img/germany.5deb47d3.png",
+          img: require("./assets/germany.png"),
         },
         {
           title1: "Découvrez le",
           title2: "monde avec nous!",
-          img: "/img/france.3ac5c01c.png",
+          img: require("./assets/france.png"),
         },
       ],
     };
@@ -139,6 +152,83 @@ export default {
 
 <style lang="less" scoped>
 @import "~materialize-css/dist/css/materialize.min.css";
+.my-flip-enter-active {
+  animation: linear my-flip-enter-anim 1.2s;
+}
+.my-flip-leave-active {
+  animation: linear my-flip-leave-anim 1.2s;
+}
+@keyframes my-flip-enter-anim {
+  0% {
+    opacity: 0;
+    transform: rotateY(180deg);
+  }
+  49% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+    transform: rotateY(-90deg);
+  }
+  100% {
+    transform: rotateY(0deg);
+  }
+}
+@keyframes my-flip-leave-anim {
+  0% {
+    transform: rotateY(0deg);
+  }
+  49% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+    transform: rotateY(-90deg);
+  }
+  100% {
+    opacity: 0;
+    transform: rotateY(180deg);
+  }
+}
+.test-btn {
+  position: relative;
+  text-align: center;
+  border: none !important;
+  &:hover {
+    animation: 1s border-around-animation;
+  }
+}
+.span-left {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 1px;
+  background-color: #000;
+}
+@keyframes border-around-animation {
+  0% {
+    .span-left {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 0;
+      width: 0;
+      background-color: #000;
+    }
+  }
+  100% {
+    color: red;
+    .span-left {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 0%;
+      width: 0;
+      background-color: #000;
+    }
+  }
+}
 button {
   &:focus {
     background: none;
@@ -191,6 +281,7 @@ nav {
 }
 .btns {
   margin-top: 20px;
+  position: relative;
 }
 // При появлении флага выводить его с animate bounceIn
 .circle-flag {
@@ -198,12 +289,12 @@ nav {
   background: #000;
   position: absolute;
   transition: 0.1s all; // Добавить delay мб и не надо.
-  box-shadow: 4px 4px 7px rgba(0, 0, 0, 0.25);
+  box-shadow: 8px 4px 7px rgba(0, 0, 0, 0.3);
 }
 #first {
   width: 120px;
   height: 120px;
-  
+
   background: #f17f77 url("assets/germany.png") no-repeat center center;
   background-size: 100%;
 }
