@@ -84,7 +84,7 @@ export default {
       this.firstLineTitle = currentLanguage.title1;
       this.secondLineTitle = currentLanguage.title2;
       this.img = currentLanguage.img;
-    }, 10000);
+    }, 5000);
   },
   data() {
     return {
@@ -104,7 +104,7 @@ export default {
       ],
       foreignBox: [
         {
-          title1: "Doscover the",
+          title1: "Discover the",
           title2: "world with us!",
           img: require("./assets/united-kingdom.png"),
         },
@@ -142,8 +142,6 @@ export default {
       return (this.mouseX / window.innerWidth) * 7;
     },
     posY() {
-      // Исправить потенциальную ошибку связанную с высотой экрана InnerHeight
-      // будет возвращать высоту всего экрана, а нам нужна высотка конкретного блока
       return (this.mouseY / 792) * 7;
     },
   },
@@ -153,41 +151,43 @@ export default {
 <style lang="less" scoped>
 @import "~materialize-css/dist/css/materialize.min.css";
 .my-flip-enter-active {
-  animation: linear my-flip-enter-anim 1.2s;
+  animation: my-flip-enter-anim 1s;
 }
 .my-flip-leave-active {
-  animation: linear my-flip-leave-anim 1.2s;
+  animation: my-flip-leave-anim 1s;
 }
 @keyframes my-flip-enter-anim {
   0% {
     opacity: 0;
-    transform: rotateY(180deg);
+    transform: scale(1) rotateY(180deg);
   }
   49% {
+    transform: scale(1.1);
     opacity: 0;
   }
   50% {
     opacity: 1;
-    transform: rotateY(-90deg);
+    transform: scale(1.1) rotateY(-90deg);
   }
   100% {
-    transform: rotateY(0deg);
+    transform: scale(1) rotateY(0deg);
   }
 }
 @keyframes my-flip-leave-anim {
   0% {
-    transform: rotateY(0deg);
+    transform: scale(1) rotateY(0deg);
   }
   49% {
+    transform: scale(1.1);
     opacity: 1;
   }
   50% {
     opacity: 0;
-    transform: rotateY(-90deg);
+    transform: scale(1.1) rotateY(-90deg);
   }
   100% {
     opacity: 0;
-    transform: rotateY(180deg);
+    transform: scale(1) rotateY(180deg);
   }
 }
 .test-btn {
