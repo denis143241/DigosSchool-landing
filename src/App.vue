@@ -1,21 +1,6 @@
 <template>
   <div @mousemove="getMousePos" class="header-page">
-    <nav>
-      <div class="container">
-        <div class="nav-wrapper">
-          <a href="#" class="brand-logo">DIGOS<strong>SCHOOL</strong></a>
-          <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><a class="nav-li" href="sass.html">О нас</a></li>
-            <li><a class="nav-li" href="badges.html">Учебник</a></li>
-            <li><a class="nav-li" href="collapsible.html">Тесты</a></li>
-            <li><a class="nav-li" href="collapsible.html">Тесты</a></li>
-            <li>
-              <a class="nav-li" href="collapsible.html">8 900 400-55-44</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+    <my-header />
     <div class="container">
       <div class="row header-main-info">
         <div class="col m8">
@@ -32,10 +17,10 @@
           <div class="btns">
             <div class="row">
               <div class="col m4">
-                <button class="my-btn common">Узнать больше</button>
+                <my-btn color>Узнать больше</my-btn>
               </div>
               <div class="col m4">
-                <button class="my-btn my-red">К практике</button>
+                <my-btn color="f1968f"> К практике </my-btn>
               </div>
             </div>
           </div>
@@ -67,7 +52,13 @@
 </template>
 
 <script>
+// [] 1. Добить на компоненты
+// [] 2. Фиксированная шапка
+
+import myBtn from "./components/myBtn.vue";
+import myHeader from "./components/myHeader.vue";
 export default {
+  components: { myBtn, myHeader },
   created() {
     let currentLanguage = this.foreignBox[0];
     this.firstLineTitle = currentLanguage.title1;
@@ -261,20 +252,6 @@ nav {
   color: #000;
   box-shadow: none;
 }
-.nav-li {
-  color: #000;
-  &:hover {
-    background: none;
-  }
-}
-.brand-logo {
-  color: #000;
-  font-size: 25px;
-  font-weight: 400;
-  strong {
-    font-weight: 700;
-  }
-}
 .header-main-info {
   position: relative;
   margin-top: 90px;
@@ -322,13 +299,13 @@ nav {
   margin-left: 20%;
   background-color: #e45a5a;
 }
-.my-btn {
-  font-weight: 600;
-  margin: 70px 0 0 40px;
-  border: 1px solid rgba(0, 0, 0, 1);
-  width: 100%;
-  padding: 12px 20px;
-}
+// .my-btn {
+//   font-weight: 600;
+//   margin: 70px 0 0 40px;
+//   border: 1px solid rgba(0, 0, 0, 1);
+//   width: 100%;
+//   padding: 12px 20px;
+// }
 .common {
   background: none;
 }
