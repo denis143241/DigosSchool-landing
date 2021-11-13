@@ -17,10 +17,11 @@
           <div class="btns">
             <div class="row">
               <div class="col m4">
-                <my-btn color>Узнать больше</my-btn>
+                <my-btn>Узнать больше</my-btn>
               </div>
               <div class="col m4">
                 <my-btn color="f1968f"> К практике </my-btn>
+                <!-- <my-btn color="FFCC80"> К практике </my-btn> -->
               </div>
             </div>
           </div>
@@ -49,16 +50,22 @@
       </div>
     </div>
   </div>
+
+  <parallax-block />
+
+  <famous-quots />
 </template>
 
 <script>
 // [] 1. Добить на компоненты
-// [] 2. Фиксированная шапка
+// [] 2. Шапку на главном экране сделать бесцветной, когда экран уедет ниже главного покрасить ее и закрепить в вверху
 
 import myBtn from "./components/myBtn.vue";
 import myHeader from "./components/myHeader.vue";
+import parallaxBlock from "./components/parallaxBlock.vue";
+import famousQuots from "./components/famousQuots.vue";
 export default {
-  components: { myBtn, myHeader },
+  components: { myBtn, myHeader, parallaxBlock, famousQuots },
   created() {
     let currentLanguage = this.foreignBox[0];
     this.firstLineTitle = currentLanguage.title1;
@@ -246,11 +253,6 @@ body {
   font-size: 65px;
   font-weight: 700;
   margin: 50px 0 0 40px;
-}
-nav {
-  background: rgba(255, 255, 255, 0) !important;
-  color: #000;
-  box-shadow: none;
 }
 .header-main-info {
   position: relative;
