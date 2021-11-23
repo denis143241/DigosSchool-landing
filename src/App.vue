@@ -17,10 +17,12 @@
           <div class="btns">
             <div class="row">
               <div class="col m4">
-                <my-btn>Узнать больше</my-btn>
+                <my-btn class="addition-for-btn">Узнать больше</my-btn>
               </div>
               <div class="col m4">
-                <my-btn color="f1968f"> К практике </my-btn>
+                <my-btn color="f1968f" class="addition-for-btn"
+                  >К практике</my-btn
+                >
                 <!-- <my-btn color="FFCC80"> К практике </my-btn> -->
               </div>
             </div>
@@ -54,6 +56,23 @@
   <parallax-block />
 
   <famous-quots />
+
+  <section id="targets">
+    <main-title>Цели изучения иностранного языка</main-title>
+    <div class="container">
+      <div class="row">
+        <div class="col m4" v-for="card in targetsData" :key="card.title">
+          <target-card
+            :img="card.img"
+            :title="card.title"
+            :addition="card.additions"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <simple-test />
 </template>
 
 <script>
@@ -64,8 +83,20 @@ import myBtn from "./components/myBtn.vue";
 import myHeader from "./components/myHeader.vue";
 import parallaxBlock from "./components/parallaxBlock.vue";
 import famousQuots from "./components/famousQuots.vue";
+import targetCard from "./components/targetCard.vue";
+import mainTitle from "./components/mainTitle.vue";
+import simpleTest from "./components/simpleTest.vue";
+
 export default {
-  components: { myBtn, myHeader, parallaxBlock, famousQuots },
+  components: {
+    myBtn,
+    myHeader,
+    parallaxBlock,
+    famousQuots,
+    targetCard,
+    mainTitle,
+    simpleTest,
+  },
   created() {
     let currentLanguage = this.foreignBox[0];
     this.firstLineTitle = currentLanguage.title1;
@@ -125,6 +156,46 @@ export default {
           title1: "Découvrez le",
           title2: "monde avec nous!",
           img: require("./assets/france.png"),
+        },
+      ],
+      targetsData: [
+        {
+          img: require("./assets/work.png"),
+          title: "Для работы",
+          additions: [
+            "Общаться с иностранными партнерами",
+            "Общаться в командировках",
+            "Посещать международные конференции",
+          ],
+        },
+        {
+          img: require("./assets/travelling.png"),
+          title: "Для путешествий",
+          additions: ["С легкостью находить контакт с людьми в поездке"],
+        },
+        {
+          img: require("./assets/me.png"),
+          title: "Для себя",
+          additions: [
+            "Общение с друзьями инострацами",
+            "Просмотр фильмов и чтение книг в оригинале",
+            "Тренировка памяти",
+          ],
+        },
+        {
+          img: require("./assets/exam.png"),
+          title: "Для ЕГЭ",
+          additions: [
+            "Подтянуть знания в рамках школьной/университетской программы, улучшить успеваемость",
+          ],
+        },
+        {
+          img: require("./assets/studying.png"),
+          title: "Для обучения за рубежом",
+          additions: [
+            "Школа/университет/магистратура/аспирантура",
+            "Будет подобрана индивидуальная программа по подготовке",
+          ],
         },
       ],
     };
@@ -262,6 +333,10 @@ body {
   margin-top: 20px;
   position: relative;
 }
+.addition-for-btn {
+  margin: 70px 0 0 40px;
+  width: 100%;
+}
 // При появлении флага выводить его с animate bounceIn
 .circle-flag {
   border-radius: 100%;
@@ -300,6 +375,9 @@ body {
   height: 40px;
   margin-left: 20%;
   background-color: #e45a5a;
+}
+#targets {
+  margin-bottom: 100px;
 }
 // .my-btn {
 //   font-weight: 600;

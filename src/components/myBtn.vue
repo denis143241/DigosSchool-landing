@@ -1,6 +1,14 @@
 <template>
   <div class="my-button">
-    <button class="my-btn" :style="{ backgroundColor: `#${color}` }">
+    <button
+      class="my-btn"
+      :style="{
+        backgroundColor: `#${color}`,
+        backgroundImage: `url(${bg})`,
+        backgroundSize: '100%',
+        backgroundPosition: 'center center',
+      }"
+    >
       <slot />
     </button>
     <button
@@ -21,6 +29,9 @@ export default {
     color: {
       required: true,
       type: String,
+    },
+    bg: {
+      required: false,
     },
   },
 };
@@ -43,7 +54,6 @@ export default {
 .my-btn {
   position: absolute;
   font-weight: 600;
-  margin: 70px 0 0 40px;
   border: 1px solid rgba(0, 0, 0, 1);
   width: 85%;
   padding: 12px 20px;
