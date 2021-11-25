@@ -75,6 +75,8 @@
   <simple-test />
 
   <lessons-block />
+
+  <answer-block />
 </template>
 
 <script>
@@ -89,6 +91,7 @@ import targetCard from "./components/targetCard.vue";
 import mainTitle from "./components/mainTitle.vue";
 import simpleTest from "./components/simpleTest.vue";
 import lessonsBlock from "./components/lessonsBlock.vue";
+import answerBlock from "./components/answerBlock.vue";
 
 export default {
   components: {
@@ -100,6 +103,7 @@ export default {
     mainTitle,
     simpleTest,
     lessonsBlock,
+    answerBlock,
   },
   created() {
     let currentLanguage = this.foreignBox[0];

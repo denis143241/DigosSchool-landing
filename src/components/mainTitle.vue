@@ -10,6 +10,6 @@
   font-size: 35px;
   font-weight: 500;
   font-family: "Oranienbaum", serif;
-  margin: 20px 0 0;
+  margin: 20px 0 40px;
 }
 </style>

@@ -1,6 +1,6 @@
 <template>
   <div class="famous-quots">
-    <main-title
+    <main-title class="title"
       >Цитаты известных людей о знании<br />иностранных языков</main-title
     >
     <my-carousel :quotes="quotes"></my-carousel>
@@ -50,5 +50,8 @@ export default {
 <style lang="less" scoped>
 .famous-quots {
   margin-bottom: 170px;
+}
+.title {
+  margin-bottom: 0;
 }
 </style>

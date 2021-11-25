@@ -75,7 +75,7 @@ export default {
 
 <style lang="less" scoped>
 .test-app {
-  margin: 150px 0;
+  margin: 170px 0 210px;
 }
 p {
   text-align: center;
