@@ -1,7 +1,7 @@
 <template>
   <div class="parallax-container">
     <div ref="parallax" class="parallax">
-      <img src="../assets/sky-short.jpg" />
+      <img src="../assets/frame-1_fit_medium.png" />
     </div>
     <div class="container">
       <div class="row upper-part">
@@ -71,7 +71,7 @@ export default {
 }
 .parallax-container {
   margin-bottom: 170px;
-  height: 700px;
+  height: 900px;
   color: #fff;
 }
 .features {

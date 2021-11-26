@@ -33,6 +33,9 @@ export default {
     bg: {
       required: false,
     },
+    textColor: {
+      type: String,
+    },
   },
 };
 </script>
@@ -50,6 +53,7 @@ export default {
 }
 .my-button {
   position: relative;
+  color: #fff;
 }
 .my-btn {
   position: absolute;

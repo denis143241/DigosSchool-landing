@@ -77,10 +77,14 @@
   <lessons-block />
 
   <answer-block />
+
+  <reviews-block />
+
+
 </template>
 
 <script>
-// [] 1. Добить на компоненты
+// [х] 1. Добить на компоненты
 // [] 2. Шапку на главном экране сделать бесцветной, когда экран уедет ниже главного покрасить ее и закрепить в вверху
 
 import myBtn from "./components/myBtn.vue";
@@ -92,6 +96,7 @@ import mainTitle from "./components/mainTitle.vue";
 import simpleTest from "./components/simpleTest.vue";
 import lessonsBlock from "./components/lessonsBlock.vue";
 import answerBlock from "./components/answerBlock.vue";
+import reviewsBlock from "./components/reviewsBlock.vue"
 
 export default {
   components: {
@@ -104,6 +109,7 @@ export default {
     simpleTest,
     lessonsBlock,
     answerBlock,
+    reviewsBlock,
   },
   created() {
     let currentLanguage = this.foreignBox[0];
