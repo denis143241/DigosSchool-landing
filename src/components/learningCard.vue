@@ -11,7 +11,7 @@
     </div>
     <div class="card-reveal">
       <span class="card-title grey-text text-darken-4"
-        >С чего начинать изучение<i class="material-icons right">close</i></span
+        ><slot name="title" /><i class="material-icons right">close</i></span
       >
       <p>
         <slot name="text" />
@@ -25,6 +25,9 @@ export default {
   props: {
     image: {
       required: true,
+      title: {
+        required: true,
+      },
     },
   },
 };
@@ -33,5 +36,8 @@ export default {
 <style lang="less" scoped>
 .card {
   max-width: 500px;
+  &:hover {
+    box-shadow: 0 0 20px #f17f77;
+  }
 }
 </style>

@@ -61,11 +61,33 @@
     <main-title>Цели изучения иностранного языка</main-title>
     <div class="container">
       <div class="row">
-        <div class="col m4" v-for="card in targetsData" :key="card.title">
-          <target-card
-            :img="card.img"
-            :title="card.title"
-            :addition="card.additions"
+        <div class="col m6">
+          <async-target-block
+            :img="targetsData[0].img"
+            :title="targetsData[0].title"
+            :addition="targetsData[0].additions"
+          />
+          <async-target-block
+            :img="targetsData[1].img"
+            :title="targetsData[1].title"
+            :addition="targetsData[1].additions"
+          />
+          <async-target-block
+            :img="targetsData[2].img"
+            :title="targetsData[2].title"
+            :addition="targetsData[2].additions"
+          />
+        </div>
+        <div class="col m6 shifted">
+          <async-target-block
+            :img="targetsData[3].img"
+            :title="targetsData[3].title"
+            :addition="targetsData[3].additions"
+          />
+          <async-target-block
+            :img="targetsData[4].img"
+            :title="targetsData[4].title"
+            :addition="targetsData[4].additions"
           />
         </div>
       </div>
@@ -91,12 +113,12 @@ import myBtn from "./components/myBtn.vue";
 import myHeader from "./components/myHeader.vue";
 import parallaxBlock from "./components/parallaxBlock.vue";
 import famousQuots from "./components/famousQuots.vue";
-import targetCard from "./components/targetCard.vue";
+import asyncTargetBlock from "./components/asyncTargetBlock.vue";
 import mainTitle from "./components/mainTitle.vue";
 import simpleTest from "./components/simpleTest.vue";
 import lessonsBlock from "./components/lessonsBlock.vue";
 import answerBlock from "./components/answerBlock.vue";
-import reviewsBlock from "./components/reviewsBlock.vue"
+import reviewsBlock from "./components/reviewsBlock.vue";
 
 export default {
   components: {
@@ -104,7 +126,7 @@ export default {
     myHeader,
     parallaxBlock,
     famousQuots,
-    targetCard,
+    asyncTargetBlock,
     mainTitle,
     simpleTest,
     lessonsBlock,
@@ -272,6 +294,9 @@ export default {
     opacity: 0;
     transform: scale(1) rotateY(180deg);
   }
+}
+.shifted {
+  margin-top: 150px;
 }
 .test-btn {
   position: relative;
