@@ -102,7 +102,7 @@
 
   <reviews-block />
 
-
+  <my-calendar />
 </template>
 
 <script>
@@ -119,6 +119,7 @@ import simpleTest from "./components/simpleTest.vue";
 import lessonsBlock from "./components/lessonsBlock.vue";
 import answerBlock from "./components/answerBlock.vue";
 import reviewsBlock from "./components/reviewsBlock.vue";
+import myCalendar from "./components/myCalendar.vue";
 
 export default {
   components: {
@@ -132,6 +133,7 @@ export default {
     lessonsBlock,
     answerBlock,
     reviewsBlock,
+    myCalendar,
   },
   created() {
     let currentLanguage = this.foreignBox[0];

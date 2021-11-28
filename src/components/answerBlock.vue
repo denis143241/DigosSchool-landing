@@ -138,5 +138,11 @@ export default {
 h3 {
   font-size: 30px;
 }
+</style>
 
+<style lang="less">
+.collapsible-body {
+  border-bottom: 1px solid #f17f77 !important;
+  border-top: 1px solid #f17f77 !important;
+}
 </style>
