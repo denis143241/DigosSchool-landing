@@ -173,7 +173,7 @@
 
         <transition
           enter-active-class="animated fadeInRight"
-          leave-active-class="animated fadeOutLeft"
+          leave-active-class="animated fadeOut"
         >
           <div v-if="step === 3" class="calendar-block contacts">
             <div class="row">
@@ -222,11 +222,27 @@
                 <div class="forbtn">
                   <div class="btns">
                     <my-btn @click="prev" class="btn-prev">Назад</my-btn>
-                    <my-btn @click="next" class="btn-next">Далее</my-btn>
+                    <my-btn @click="sendClientData" class="btn-next"
+                      >Отправить</my-btn
+                    >
                   </div>
                 </div>
               </div>
             </div>
+          </div>
+        </transition>
+
+        <transition
+          enter-active-class="animated bounceIn"
+          leave-active-class="animated fadeOut"
+        >
+          <div v-if="step === 4" class="calendar-block form-done">
+            <img src="../assets/check-mark.png" alt="" />
+            <h3>
+              Ваша заявка принята!<br /><span
+                >Ожидайте вам скоро позвонят :)</span
+              >
+            </h3>
           </div>
         </transition>
       </div>
@@ -266,6 +282,10 @@ export default {
       let topVisible = windowHeight - coords.top;
       let bottomVisible = windowHeight - coords.bottom;
       return [topVisible, bottomVisible];
+    },
+    sendClientData() {
+      console.log("data are sent");
+      this.step = 4;
     },
   },
   mounted() {
@@ -336,6 +356,28 @@ export default {
 </script>
 
 <style lang="less" scoped>
+.form-done {
+  text-align: center;
+  & img {
+    text-align: center;
+    width: 128px;
+    height: 128px;
+  }
+  & h3 {
+    text-align: center;
+    color: #000;
+    & span {
+      font-weight: 300;
+      font-size: 20px;
+      &::after {
+        background-color: rgba(0, 0, 0, 0);
+      }
+      &:hover {
+        cursor: inherit;
+      }
+    }
+  }
+}
 .free-lesson-form {
   margin: 450px 0 300px;
 }
