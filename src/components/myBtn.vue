@@ -78,3 +78,12 @@ export default {
   }
 }
 </style>
+
+<style lang="less">
+.my-btn {
+  &:focus {
+    outline: none;
+    background-color: #f17f77;
+  }
+}
+</style>

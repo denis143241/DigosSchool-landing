@@ -1,228 +1,235 @@
 <template>
-  <div class="container">
-    <div ref="entireCalendar" class="calendar">
-      <transition
-        enter-active-class="animated fadeInRight"
-        leave-active-class="animated fadeOutLeft"
+  <div class="free-lesson-form">
+    <main-title>Записаться на бесплатное занятие</main-title>
+    <div class="container">
+      <div
+        ref="entireCalendar"
+        class="calendar"
+        :style="{ transform: `scale(${fi})` }"
       >
-        <div v-if="step === 0" class="calendar-block date_and_time">
-          <div class="row">
-            <div class="col m4 menu">
-              <!-- Menu -->
-              <h3>Онлайн запись</h3>
-              <ul>
-                <li>
-                  <img src="../assets/calendar.png" alt="" />
-                  <p>Дата и время</p>
-                </li>
+        <transition
+          enter-active-class="animated fadeInRight"
+          leave-active-class="animated fadeOutLeft"
+        >
+          <div v-if="step === 0" class="calendar-block date_and_time">
+            <div class="row">
+              <div class="col m4 menu">
+                <!-- Menu -->
+                <h3>Онлайн запись</h3>
+                <ul>
+                  <li>
+                    <img src="../assets/calendar.png" alt="" />
+                    <p>Дата и время</p>
+                  </li>
 
-                <li>
-                  <img src="../assets/language.png" alt="" />
-                  <p>Язык</p>
-                </li>
+                  <li>
+                    <img src="../assets/language.png" alt="" />
+                    <p>Язык</p>
+                  </li>
 
-                <li>
-                  <img src="../assets/presentation1.png" alt="" />
-                  <p>Вид занятия</p>
-                </li>
-                <li>
-                  <img src="../assets/contact-mail.png" alt="" />
-                  <p>Контакты</p>
-                </li>
-              </ul>
-            </div>
-            <div class="col m8 right-panel">
-              <h2>Выберите дату и время</h2>
-              <input
-                ref="calendar"
-                type="text"
-                class="datepicker"
-                placeholder="Выберите дату"
-                required
-              />
-              <input
-                type="text"
-                class="timepicker"
-                placeholder="Выберите время"
-                required
-              />
-              <div class="forbtn">
-                <my-btn @click="next" class="btn-next">Далее</my-btn>
+                  <li>
+                    <img src="../assets/presentation1.png" alt="" />
+                    <p>Вид занятия</p>
+                  </li>
+                  <li>
+                    <img src="../assets/contact-mail.png" alt="" />
+                    <p>Контакты</p>
+                  </li>
+                </ul>
               </div>
-            </div>
-          </div>
-        </div>
-      </transition>
-
-      <transition
-        enter-active-class="animated fadeInRight"
-        leave-active-class="animated fadeOutLeft"
-      >
-        <div v-if="step === 1" class="calendar-block language">
-          <div class="row">
-            <div class="col m4 menu">
-              <!-- Menu -->
-              <h3>Онлайн запись</h3>
-              <ul>
-                <li>
-                  <img src="../assets/calendar-done1.png" alt="" />
-                  <p>Дата и время</p>
-                </li>
-
-                <li>
-                  <img src="../assets/language.png" alt="" />
-                  <p>Язык</p>
-                </li>
-
-                <li>
-                  <img src="../assets/presentation1.png" alt="" />
-                  <p>Вид занятия</p>
-                </li>
-                <li>
-                  <img src="../assets/contact-mail.png" alt="" />
-                  <p>Контакты</p>
-                </li>
-              </ul>
-            </div>
-            <div class="col m8 right-panel">
-              <h2>Выберите язык</h2>
-              <list-of-languages />
-              <div class="forbtn">
-                <div class="btns">
-                  <my-btn @click="prev" class="btn-prev">Назад</my-btn>
+              <div class="col m8 right-panel">
+                <h2>Выберите дату и время</h2>
+                <input
+                  ref="calendar"
+                  type="text"
+                  class="datepicker"
+                  placeholder="Выберите дату"
+                  required
+                />
+                <input
+                  type="text"
+                  class="timepicker"
+                  placeholder="Выберите время"
+                  required
+                />
+                <div class="forbtn">
                   <my-btn @click="next" class="btn-next">Далее</my-btn>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </transition>
+        </transition>
 
-      <transition
-        enter-active-class="animated fadeInRight"
-        leave-active-class="animated fadeOutLeft"
-      >
-        <div v-if="step === 2" class="calendar-block kinds">
-          <div class="row">
-            <div class="col m4 menu">
-              <!-- Menu -->
-              <h3>Онлайн запись</h3>
-              <ul>
-                <li>
-                  <img src="../assets/calendar-done1.png" alt="" />
-                  <p>Дата и время</p>
-                </li>
+        <transition
+          enter-active-class="animated fadeInRight"
+          leave-active-class="animated fadeOutLeft"
+        >
+          <div v-if="step === 1" class="calendar-block language">
+            <div class="row">
+              <div class="col m4 menu">
+                <!-- Menu -->
+                <h3>Онлайн запись</h3>
+                <ul>
+                  <li>
+                    <img src="../assets/calendar-done1.png" alt="" />
+                    <p>Дата и время</p>
+                  </li>
 
-                <li>
-                  <img src="../assets/language.png" alt="" />
-                  <p>Язык</p>
-                </li>
+                  <li>
+                    <img src="../assets/language.png" alt="" />
+                    <p>Язык</p>
+                  </li>
 
-                <li>
-                  <img src="../assets/presentation1.png" alt="" />
-                  <p>Вид занятия</p>
-                </li>
-                <li>
-                  <img src="../assets/contact-mail.png" alt="" />
-                  <p>Контакты</p>
-                </li>
-              </ul>
-            </div>
-            <div class="col m8 right-panel">
-              <h2>Выберите вид занятия</h2>
-              <div class="row">
-                <div class="col m4">
-                  <div class="block">
-                    <p class="kind">
-                      <span
-                        @click="kind = 'distant'"
-                        :class="{ kindchecked: kind === 'distant' }"
-                        >Дистанионно</span
-                      >
-                    </p>
-                  </div>
-                </div>
-                <div class="col m4">
-                  <div class="block">
-                    <p class="kind">
-                      <span
-                        @click="kind = 'ochno'"
-                        :class="{ kindchecked: kind === 'ochno' }"
-                        >Очно</span
-                      >
-                    </p>
+                  <li>
+                    <img src="../assets/presentation1.png" alt="" />
+                    <p>Вид занятия</p>
+                  </li>
+                  <li>
+                    <img src="../assets/contact-mail.png" alt="" />
+                    <p>Контакты</p>
+                  </li>
+                </ul>
+              </div>
+              <div class="col m8 right-panel">
+                <h2>Выберите язык</h2>
+                <list-of-languages />
+                <div class="forbtn">
+                  <div class="btns">
+                    <my-btn @click="prev" class="btn-prev">Назад</my-btn>
+                    <my-btn @click="next" class="btn-next">Далее</my-btn>
                   </div>
                 </div>
               </div>
-              <div class="forbtn">
-                <div class="btns">
-                  <my-btn @click="prev" class="btn-prev">Назад</my-btn>
-                  <my-btn @click="next" class="btn-next">Далее</my-btn>
+            </div>
+          </div>
+        </transition>
+
+        <transition
+          enter-active-class="animated fadeInRight"
+          leave-active-class="animated fadeOutLeft"
+        >
+          <div v-if="step === 2" class="calendar-block kinds">
+            <div class="row">
+              <div class="col m4 menu">
+                <!-- Menu -->
+                <h3>Онлайн запись</h3>
+                <ul>
+                  <li>
+                    <img src="../assets/calendar-done1.png" alt="" />
+                    <p>Дата и время</p>
+                  </li>
+
+                  <li>
+                    <img src="../assets/language.png" alt="" />
+                    <p>Язык</p>
+                  </li>
+
+                  <li>
+                    <img src="../assets/presentation1.png" alt="" />
+                    <p>Вид занятия</p>
+                  </li>
+                  <li>
+                    <img src="../assets/contact-mail.png" alt="" />
+                    <p>Контакты</p>
+                  </li>
+                </ul>
+              </div>
+              <div class="col m8 right-panel">
+                <h2>Выберите вид занятия</h2>
+                <div class="row">
+                  <div class="col m4">
+                    <div class="block">
+                      <p class="kind">
+                        <span
+                          @click="kind = 'distant'"
+                          :class="{ kindchecked: kind === 'distant' }"
+                          >Дистанионно</span
+                        >
+                      </p>
+                    </div>
+                  </div>
+                  <div class="col m4">
+                    <div class="block">
+                      <p class="kind">
+                        <span
+                          @click="kind = 'ochno'"
+                          :class="{ kindchecked: kind === 'ochno' }"
+                          >Очно</span
+                        >
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="forbtn">
+                  <div class="btns">
+                    <my-btn @click="prev" class="btn-prev">Назад</my-btn>
+                    <my-btn @click="next" class="btn-next">Далее</my-btn>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </transition>
+        </transition>
 
-      <transition
-        enter-active-class="animated fadeInRight"
-        leave-active-class="animated fadeOutLeft"
-      >
-        <div v-if="step === 3" class="calendar-block contacts">
-          <div class="row">
-            <div class="col m4 menu">
-              <!-- Menu -->
-              <h3>Онлайн запись</h3>
-              <ul>
-                <li>
-                  <img src="../assets/calendar-done1.png" alt="" />
-                  <p>Дата и время</p>
-                </li>
+        <transition
+          enter-active-class="animated fadeInRight"
+          leave-active-class="animated fadeOutLeft"
+        >
+          <div v-if="step === 3" class="calendar-block contacts">
+            <div class="row">
+              <div class="col m4 menu">
+                <!-- Menu -->
+                <h3>Онлайн запись</h3>
+                <ul>
+                  <li>
+                    <img src="../assets/calendar-done1.png" alt="" />
+                    <p>Дата и время</p>
+                  </li>
 
-                <li>
-                  <img src="../assets/language.png" alt="" />
-                  <p>Язык</p>
-                </li>
+                  <li>
+                    <img src="../assets/language.png" alt="" />
+                    <p>Язык</p>
+                  </li>
 
-                <li>
-                  <img src="../assets/presentation1.png" alt="" />
-                  <p>Вид занятия</p>
-                </li>
-                <li>
-                  <img src="../assets/contact-mail.png" alt="" />
-                  <p>Контакты</p>
-                </li>
-              </ul>
-            </div>
-            <div class="col m8 right-panel">
-              <h2>Укажите имя и телефон</h2>
-              <div class="row">
-                <div class="col m12">
-                  <input
-                    class="contacts-input"
-                    type="text"
-                    placeholder="Ваше имя"
-                  />
-                </div>
-                <div class="col m12">
-                  <input
-                    class="contacts-input"
-                    type="text"
-                    placeholder="Телефон"
-                  />
-                </div>
+                  <li>
+                    <img src="../assets/presentation1.png" alt="" />
+                    <p>Вид занятия</p>
+                  </li>
+                  <li>
+                    <img src="../assets/contact-mail.png" alt="" />
+                    <p>Контакты</p>
+                  </li>
+                </ul>
               </div>
-              <div class="forbtn">
-                <div class="btns">
-                  <my-btn @click="prev" class="btn-prev">Назад</my-btn>
-                  <my-btn @click="next" class="btn-next">Далее</my-btn>
+              <div class="col m8 right-panel">
+                <h2>Укажите имя и телефон</h2>
+                <div class="row">
+                  <div class="col m12">
+                    <input
+                      class="contacts-input"
+                      type="text"
+                      placeholder="Ваше имя"
+                    />
+                  </div>
+                  <div class="col m12">
+                    <input
+                      class="contacts-input"
+                      type="text"
+                      placeholder="Телефон"
+                    />
+                  </div>
+                </div>
+                <div class="forbtn">
+                  <div class="btns">
+                    <my-btn @click="prev" class="btn-prev">Назад</my-btn>
+                    <my-btn @click="next" class="btn-next">Далее</my-btn>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </transition>
+        </transition>
+      </div>
     </div>
   </div>
 </template>
@@ -231,16 +238,19 @@
 import myBtn from "./myBtn.vue";
 import listOfLanguages from "./listOfLanguages.vue";
 import M from "../../node_modules/materialize-css";
+import MainTitle from "./mainTitle.vue";
 
 export default {
   components: {
     myBtn,
     listOfLanguages,
+    MainTitle,
   },
   data() {
     return {
       step: 0,
       kind: "",
+      fi: 100,
     };
   },
   methods: {
@@ -254,13 +264,23 @@ export default {
       let coords = this.$refs.entireCalendar.getBoundingClientRect();
       let windowHeight = document.documentElement.clientHeight;
       let topVisible = windowHeight - coords.top;
-
-      return [coords, windowHeight, topVisible];
+      let bottomVisible = windowHeight - coords.bottom;
+      return [topVisible, bottomVisible];
     },
   },
   mounted() {
     document.addEventListener("scroll", () => {
-      console.log(this.isVisible());
+      let [top, bottom] = this.isVisible();
+      let additionScroll = (document.documentElement.clientHeight - 550) / 2;
+      if (top > 0 && bottom < document.documentElement.clientHeight) {
+        // Расчитывается Scale (в диапазоне от 1 до 1.1)
+        this.fi =
+          1.1 /
+          (1 +
+            ((Math.abs(bottom - additionScroll) - 1.1) * 0.1) /
+              (550 + additionScroll));
+        console.log(this.fi);
+      }
     });
     document.addEventListener("DOMContentLoaded", () => {
       var elem = this.$refs.calendar;
@@ -316,10 +336,13 @@ export default {
 </script>
 
 <style lang="less" scoped>
+.free-lesson-form {
+  margin: 450px 0 300px;
+}
 .calendar {
   position: relative;
   height: 550px;
-  margin-bottom: 200px;
+  margin-top: 100px;
   &-block {
     height: 100%;
     width: 100%;
