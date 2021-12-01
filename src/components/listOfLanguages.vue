@@ -1,6 +1,6 @@
 <template>
   <div class="row">
-    <div v-for="lang in contries" :key="lang" class="col m3">
+    <div v-for="lang in contries" :key="lang" :class="`col m${size}`">
       <div
         class="flag"
         :style="{
@@ -17,6 +17,9 @@
 
 <script>
 export default {
+  props: {
+    size: {},
+  },
   data() {
     return {
       contries: [
@@ -55,6 +58,7 @@ export default {
     setCheck(country) {
       this.setBase();
       country.checked = true;
+      this.$emit("stateLang", { lang: country.text });
     },
   },
 };
@@ -68,6 +72,7 @@ export default {
   &:hover {
     box-shadow: 0 0 20px #f17f77;
     transform: scale(1.025);
+    cursor: pointer;
   }
 }
 h6 {

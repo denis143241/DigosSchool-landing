@@ -92,7 +92,7 @@
               </div>
               <div class="col m8 right-panel">
                 <h2>Выберите язык</h2>
-                <list-of-languages />
+                <list-of-languages :size="3" />
                 <div class="forbtn">
                   <div class="btns">
                     <my-btn @click="prev" class="btn-prev">Назад</my-btn>

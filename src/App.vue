@@ -73,6 +73,7 @@
             :addition="targetsData[1].additions"
           />
           <async-target-block
+            class="last"
             :img="targetsData[2].img"
             :title="targetsData[2].title"
             :addition="targetsData[2].additions"
@@ -301,6 +302,9 @@ export default {
     transform: scale(1) rotateY(180deg);
   }
 }
+.last {
+  margin-bottom: 0 !important;
+}
 .shifted {
   margin-top: 150px;
 }
@@ -420,9 +424,6 @@ body {
   height: 40px;
   margin-left: 20%;
   background-color: #e45a5a;
-}
-#targets {
-  margin-bottom: 100px;
 }
 // .my-btn {
 //   font-weight: 600;
