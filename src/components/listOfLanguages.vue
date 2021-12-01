@@ -65,6 +65,7 @@ export default {
 </script>
 
 <style lang="less" scoped>
+@import url("../assets/mainStyle.less");
 .flag {
   width: 100%;
   height: 50px;
@@ -76,6 +77,10 @@ export default {
   }
 }
 h6 {
+  font-family: @dop-font;
+  letter-spacing: .9px;
+  font-size: 16px;
+  color: #4d4d4d;
   text-align: center;
   margin-top: 20px;
   margin-bottom: 40px;

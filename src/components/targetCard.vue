@@ -33,8 +33,13 @@ export default {
 </script>
 
 <style lang="less" scoped>
+@import url("../assets/mainStyle.less");
+html {
+  font-family: @dop-font;
+}
 .card {
   min-height: 300px;
+  font-family: @main-font !important;
 }
 img {
   width: 60px;
@@ -45,6 +50,7 @@ img {
   left: 0;
 }
 h3 {
+  font-family: @main-font !important;
   margin: 0;
   padding: 0;
   font-size: 26px;

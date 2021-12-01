@@ -1,18 +1,26 @@
 <template>
   <div class="card">
     <p id="text">
-      Отличная школа!<br />
-      Очень удобный формат обучения! Сам выбираешь время, которое тебе удобно,
-      сам выбираешь преподавателя по их резюме и записи голосового резюме на
-      английском. Интересные упражнения и домашнее задание
+      {{ person.text }}
     </p>
-    <img src="../assets/customer-2.jpg" alt="" />
-    <p class="name">Denis Igoshin</p>
-    <p class="description">Фронтенд-разработчик</p>
+    <img :src="person.img" alt="" />
+    <p class="name">{{ person.name }}</p>
+    <p class="description">{{ person.work }}</p>
   </div>
 </template>
 
+<script>
+export default {
+  props: {
+    person: {
+      type: Object,
+    },
+  },
+};
+</script>
+
 <style lang="less" scoped>
+@import url("../assets/mainStyle.less");
 img {
   width: 110px;
   height: 110px;
@@ -29,6 +37,9 @@ img {
 }
 #text {
   flex-grow: 1;
+  font-family: @dop-font;
+  letter-spacing: .8px;
+  color: @dop-color;
 }
 p {
   margin: 0;
@@ -38,6 +49,7 @@ p {
   padding-bottom: 7px;
 }
 .name {
+  font-family: @main-font;
   position: relative;
   font-weight: 900;
   font-size: 16px;
@@ -53,6 +65,9 @@ p {
   }
 }
 .description {
+  font-family: @dop-font;
+  color: @dop-color;
+  letter-spacing: .9px;
   margin-top: 10px;
 }
 </style>

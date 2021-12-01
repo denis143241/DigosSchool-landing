@@ -30,6 +30,7 @@ export default {
 </script>
 
 <style lang="less" scoped>
+@import url("../assets/mainStyle.less");
 .quote {
   width: 100%;
   height: 300px;

@@ -18,15 +18,23 @@
 </template>
 
 <style lang="less" scoped>
+@import url("../assets/mainStyle.less");
 nav {
+  font-family: @main-font;
   background-color: #f1968f !important;
 }
+#nav-mobile {
+  font-family: @dop-font;
+  letter-spacing: 0.90px !important;
+}
 .brand-logo {
+  font-family: @dop-font;
+  letter-spacing: 1px;
+  font-size: 28px;
   color: #000;
-  font-size: 25px;
-  font-weight: 400;
+  font-weight: 300;
   strong {
-    font-weight: 700;
+    font-weight: 600;
   }
 }
 .nav-li {

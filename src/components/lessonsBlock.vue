@@ -4,8 +4,12 @@
     <div class="row">
       <div v-for="card in cards" :key="card.title" class="col m6">
         <learning-card :image="card.img">
-          <template #title>{{ card.title }}</template>
-          <template #text>{{ card.text }}</template>
+          <template #title
+            ><p class="title">{{ card.title }}</p></template
+          >
+          <template #text
+            ><p class="text">{{ card.text }}</p></template
+          >
         </learning-card>
       </div>
     </div>
@@ -53,3 +57,18 @@ export default {
   },
 };
 </script>
+
+<style lang="less" scoped>
+@import url("../assets/mainStyle.less");
+p {
+  font-family: @dop-font;
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+}
+.text {
+  color: @dop-color;
+  font-size: 16px;
+  letter-spacing: 0.5px;
+}
+</style>

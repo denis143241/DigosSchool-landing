@@ -57,6 +57,7 @@ export default {
 </script>
 
 <style lang="less" scoped>
+@import url("../assets/mainStyle.less");
 .social {
   margin-top: 50px !important;
 }
@@ -69,10 +70,14 @@ export default {
   font-size: 18px;
 }
 .logo {
+  font-family: @dop-font;
+  letter-spacing: .9px;
+  font-weight: 500;
   font-size: 30px;
 }
 .subtitle {
   min-height: 100px;
+  font-size: 20px;
   margin-top: 50px;
   display: flex;
   align-items: center;
@@ -85,6 +90,10 @@ li {
   }
 }
 a {
+  font-family: @dop-font;
+  letter-spacing: .8px;
+  font-weight: 200;
+  font-size: 18px;
   text-decoration: none;
   color: #fff;
   &:hover {

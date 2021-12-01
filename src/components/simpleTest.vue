@@ -95,6 +95,13 @@ export default {
 </script>
 
 <style lang="less" scoped>
+@import url("../assets/mainStyle.less");
+h4 {
+  font-family: @dop-font;
+  font-weight: 900;
+  text-align: center;
+  letter-spacing: .8px;
+}
 .main-title {
   margin-bottom: 20px !important;
 }
@@ -104,7 +111,7 @@ export default {
   font-weight: 500;
 }
 .test-app {
-  margin: 170px 0 210px;
+  margin: 170px 0 150px;
   position: relative;
   min-height: 417px;
 }
@@ -116,8 +123,12 @@ export default {
   left: 0;
 }
 p {
+  font-family: @dop-font;
+  letter-spacing: 0.9px;
+  font-size: 16px;
+  color: @dop-color;
   text-align: center;
-  font-weight: 900;
+  font-weight: 400;
 }
 .start-btn {
   display: flex;

@@ -31,6 +31,7 @@ export default {
 </script>
 
 <style lang="less" scoped>
+@import url("../assets/mainStyle.less");
 .card {
   display: flex;
   flex-direction: column;
@@ -38,7 +39,6 @@ export default {
   height: 300px;
   max-height: 300px;
   background-color: #f1968f;
-  // background-color: #FFCC80;
   padding: 10px;
   color: #000;
 }
@@ -50,16 +50,16 @@ export default {
 }
 .title {
   text-align: center;
-  font-family: "Oranienbaum", serif;
+  font-family: @main-font;
   font-size: 24px;
-  font-weight: 900;
+  font-weight: 700;
   margin-bottom: 20px;
 }
 p {
   text-align: center;
-  font-family: "Cormorant", serif;
+  font-family: @dop-font;
   font-size: 22px;
-  font-weight: 500;
+  font-weight: 300;
 }
 .quote {
   background: url("../assets/quotes.png") no-repeat center center;

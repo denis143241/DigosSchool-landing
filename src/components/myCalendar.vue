@@ -356,6 +356,7 @@ export default {
 </script>
 
 <style lang="less" scoped>
+@import url("../assets/mainStyle.less");
 .form-done {
   text-align: center;
   & img {
@@ -364,8 +365,12 @@ export default {
     height: 128px;
   }
   & h3 {
+    font-family: @dop-font;
+    font-weight: 900px;
+    letter-spacing: .5px;
     text-align: center;
     color: #000;
+    text-transform: inherit;
     & span {
       font-weight: 300;
       font-size: 20px;
@@ -379,7 +384,7 @@ export default {
   }
 }
 .free-lesson-form {
-  margin: 450px 0 300px;
+  margin: 350px 0 170px;
 }
 .calendar {
   position: relative;
@@ -445,6 +450,9 @@ img {
   height: 100%;
 }
 ul {
+  font-family: @dop-font;
+  color: @dop-color;
+  letter-spacing: .8px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -465,10 +473,13 @@ p {
 }
 h3,
 h2 {
+  font-family: @dop-font;
+  letter-spacing: 1px;
   margin: 0;
   text-align: center;
   margin: 60px 0;
   font-size: 35px;
+  text-transform: uppercase;
   color: #fff;
   font-weight: 900;
 }
@@ -477,6 +488,8 @@ h2 {
   text-align: left;
 }
 .right-panel {
+  font-family: @dop-font;
+  letter-spacing: .8px;
   padding: 0 60px 0 40px !important;
   display: flex;
   flex-direction: column;
@@ -545,6 +558,7 @@ h2 {
   &:focus {
     border-bottom: 1px solid #f17f77 !important;
     box-shadow: 0 1px 0 0 #ccb9b7 !important;
+    border-left: none;
   }
 }
 </style>

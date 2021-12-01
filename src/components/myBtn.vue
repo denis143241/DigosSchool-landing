@@ -41,6 +41,7 @@ export default {
 </script>
 
 <style lang="less" scoped>
+@import url("../assets/mainStyle.less");
 @keyframes on-hover {
   0% {
     top: 0;
@@ -56,8 +57,11 @@ export default {
   color: #fff;
 }
 .my-btn {
+  font-family: @dop-font;
+
   position: absolute;
-  font-weight: 600;
+  font-weight: 500;
+  letter-spacing: .8px;
   border: 1px solid rgba(0, 0, 0, 1);
   width: 85%;
   padding: 12px 20px;

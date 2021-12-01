@@ -34,8 +34,11 @@ export default {
 </script>
 
 <style lang="less" scoped>
+@import url("../assets/mainStyle.less");
 .card {
   max-width: 500px;
+  font-family: @dop-font;
+  letter-spacing: 0.9;
   &:hover {
     box-shadow: 0 0 20px #f17f77;
   }

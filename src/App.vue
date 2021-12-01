@@ -262,6 +262,7 @@ export default {
 
 <style lang="less" scoped>
 @import "~materialize-css/dist/css/materialize.min.css";
+@import url("./assets/mainStyle.less");
 .my-flip-enter-active {
   animation: my-flip-enter-anim 1s;
 }
@@ -361,17 +362,16 @@ body {
   height: 100px;
 }
 .header-page {
-  font-family: "Open Sans", sans-serif;
   height: 100vh;
   background: #f8f8f8;
 }
 .header-title {
+  font-family: @main-font;
   top: 0;
   left: 0;
   position: absolute;
-  font-family: "Open Sans", sans-serif;
   font-size: 65px;
-  font-weight: 700;
+  font-weight: 900;
   margin: 50px 0 0 40px;
 }
 .header-main-info {
@@ -425,13 +425,6 @@ body {
   margin-left: 20%;
   background-color: #e45a5a;
 }
-// .my-btn {
-//   font-weight: 600;
-//   margin: 70px 0 0 40px;
-//   border: 1px solid rgba(0, 0, 0, 1);
-//   width: 100%;
-//   padding: 12px 20px;
-// }
 .common {
   background: none;
 }

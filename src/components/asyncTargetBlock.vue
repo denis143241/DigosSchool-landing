@@ -41,9 +41,11 @@ export default {
 </script>
 
 <style lang="less" scoped>
+@import url("../assets/mainStyle.less");
 .card {
   box-shadow: none;
   margin: 40px 0 130px;
+  font-family: @main-font;
 }
 img {
   width: 80px;
@@ -70,10 +72,12 @@ span {
 }
 ul {
   max-width: 95%;
+  font-family: @dop-font;
+  letter-spacing: 0.9px;
 }
 li {
   font-size: 20px;
-  color: #242424;
+  color: @dop-color;
   position: relative;
   padding-left: 40px;
   &::before {

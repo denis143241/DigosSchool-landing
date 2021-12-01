@@ -109,6 +109,7 @@ export default {
 </script>
 
 <style lang="less" scoped>
+@import url("../assets/mainStyle.less");
 .collapsible {
   box-shadow: none;
   border: none;
@@ -122,18 +123,26 @@ export default {
 }
 .answer {
   &-title {
-    font-size: 40px;
+    margin-top: 20px;
+    font-family: @main-font;
+    text-transform: uppercase;
+    font-size: 38px;
     font-weight: 300;
     line-height: 130%;
+    letter-spacing: normal;
+    color: #000;
   }
   &-block {
     margin: 130px 0;
+    font-family: @dop-font;
+    font-size: 18px;
+    letter-spacing: 0.9px;
   }
 }
 .subscription {
   font-weight: 900;
-  font-size: 16px;
-  margin: 30px 0;
+  font-size: 17px;
+  margin: 40px 0;
 }
 h3 {
   font-size: 30px;
@@ -141,8 +150,11 @@ h3 {
 </style>
 
 <style lang="less">
+@import url("../assets/mainStyle.less");
 .collapsible-body {
   border-bottom: 1px solid #f17f77 !important;
   border-top: 1px solid #f17f77 !important;
+  color: @dop-color;
+  font-size: 18px;
 }
 </style>

@@ -63,7 +63,10 @@ export default {
 </script>
 
 <style lang="less" scoped>
+@import url("../assets/mainStyle.less");
 .container {
+  font-family: @dop-font;
+  letter-spacing: .8px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -81,7 +84,6 @@ export default {
   position: relative;
 }
 .feature-block {
-  font-family: "Cormorant", serif;
   color: #fff;
   font-size: 20px;
   display: flex;
@@ -95,37 +97,42 @@ export default {
   font-weight: 900;
 }
 .addition {
+  font-weight: 300 !important;
   height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 .description {
+  letter-spacing: 1px;
   padding: 0;
   margin: 0;
-  font-weight: 600;
-  font-size: 26px;
+  font-weight: 300;
+  font-size: 20px;
+  text-transform: uppercase;
 }
 .line {
   height: 2px;
   width: 100%;
-  background-color: #F1968F;
+  background-color: #f1968f;
   margin: 50px 0;
 }
 h6 {
-  font-family: "Cormorant", serif;
   text-align: center;
   max-width: 80%;
+  font-weight: 300;
+  font-size: 16px;
 }
 h4 {
-  font-family: "Cormorant", serif;
   font-size: 22px;
   font-weight: 300;
   text-align: center;
   margin: 0;
 }
 h3 {
-  font-family: "Oranienbaum", serif;
+  font-family: @main-font;
+  font-size: 40px;
+  font-weight: 700;
   text-align: center;
   margin: 0;
 }
