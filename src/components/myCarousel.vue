@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <div ref="carousel" class="carousel">
+    <div ref="carousel" class="carousel wow fadeInDown">
       <a v-for="quote of quotes" :key="quote.quote" class="carousel-item"
         ><quote-card :quote="quote"></quote-card
       ></a>

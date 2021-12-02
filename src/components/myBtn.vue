@@ -1,5 +1,5 @@
 <template>
-  <div class="my-button">
+  <div class="my-button wow pulse">
     <button
       class="my-btn"
       :style="{

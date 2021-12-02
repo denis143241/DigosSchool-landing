@@ -9,10 +9,12 @@
           <main-title class="main-title"
             >Узнай свой уровень знаний прямо сейчас</main-title
           >
-          <p>выбери один из предложенных языков и нажми начать</p>
+          <p class="wow fadeInDown">
+            выбери один из предложенных языков и нажми начать
+          </p>
           <div class="row btns">
             <div class="col m1"></div>
-            <list-of-languages :size="2" @stateLang="stateLang" />
+            <list-of-languages :anim="true" :size="2" @stateLang="stateLang" />
           </div>
           <div class="row">
             <div class="col m4 offset-m4 start-btn">
@@ -100,7 +102,7 @@ h4 {
   font-family: @dop-font;
   font-weight: 900;
   text-align: center;
-  letter-spacing: .8px;
+  letter-spacing: 0.8px;
 }
 .main-title {
   margin-bottom: 20px !important;

@@ -4,7 +4,7 @@
       <img src="../assets/frame-footer.png" />
     </div>
     <div class="container">
-      <div class="row footer-content">
+      <div class="row footer-content wow fadeIn" data-wow-delay="300ms">
         <div class="col m3">
           <div class="subtitle">
             <div class="logo">DIGOSSCHOOL</div>

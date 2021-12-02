@@ -1,5 +1,5 @@
 <template>
-  <div class="free-lesson-form">
+  <div class="free-lesson-form wow fadeInDown">
     <main-title>Записаться на бесплатное занятие</main-title>
     <div class="container">
       <div

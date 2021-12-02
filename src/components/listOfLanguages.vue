@@ -1,16 +1,22 @@
 <template>
   <div class="row">
-    <div v-for="lang in contries" :key="lang" :class="`col m${size}`">
+    <div v-for="(lang, idx) in contries" :key="lang" :class="`col m${size}`">
       <div
-        class="flag"
-        :style="{
-          background: `url(${lang.flag}) no-repeat center center`,
-          backgroundSize: '100%',
-        }"
-        :class="{ checked: lang.checked }"
-        @click="setCheck(lang)"
-      ></div>
-      <h6>{{ lang.text }}</h6>
+        class="special-for-anim"
+        :class="{ 'wow fadeInDown': anim }"
+        :data-wow-delay="`${idx * 100}ms`"
+      >
+        <div
+          class="flag"
+          :style="{
+            background: `url(${lang.flag}) no-repeat center center`,
+            backgroundSize: '100%',
+          }"
+          :class="{ checked: lang.checked }"
+          @click="setCheck(lang)"
+        ></div>
+        <h6>{{ lang.text }}</h6>
+      </div>
     </div>
   </div>
 </template>
@@ -19,6 +25,9 @@
 export default {
   props: {
     size: {},
+    anim: {
+      type: Boolean,
+    },
   },
   data() {
     return {
@@ -78,7 +87,7 @@ export default {
 }
 h6 {
   font-family: @dop-font;
-  letter-spacing: .9px;
+  letter-spacing: 0.9px;
   font-size: 16px;
   color: #4d4d4d;
   text-align: center;

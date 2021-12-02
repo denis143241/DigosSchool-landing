@@ -1,5 +1,5 @@
 <template>
-  <div class="main-title">
+  <div class="main-title wow fadeInUp">
     <slot />
   </div>
 </template>

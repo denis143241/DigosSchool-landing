@@ -10,9 +10,10 @@
       <h4>Что говорят наши<br />выпускники?</h4>
       <div class="cards">
         <review-card
-          v-for="card in reviews"
+          v-for="(card, idx) in reviews"
           :key="card"
-          class="my-card"
+          class="my-card wow fadeInUp"
+          :data-wow-delay="`${idx * 100 + 300}ms`"
           :person="card"
         ></review-card>
       </div>

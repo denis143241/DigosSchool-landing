@@ -5,11 +5,11 @@
     </div>
     <div class="container">
       <div class="row upper-part">
-        <div class="col m6">
+        <div class="col m6 wow fadeInLeft">
           <h4>DIGOSSCHOOL - Онлайн школа</h4>
           <h3>Изчучения иностранных<br />языков.</h3>
         </div>
-        <div class="col m6 addition">
+        <div class="col m6 addition wow fadeInRight">
           <h6>
             Громкостнoй прогрессийный период традиционен. Также контрапункт
             контрастных фактур, и это особенно заметно у Чарли Паркера или Джона

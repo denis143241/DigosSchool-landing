@@ -1,5 +1,9 @@
 <template>
-  <div class="card">
+  <div
+    class="card wow"
+    data-wow-delay="0.5s"
+    :class="{ fadeInLeft: col === 2, fadeInRight: col === 1 }"
+  >
     <img :src="img" alt="" />
     <h3>
       {{ titleWithoutLastItem }}<span>{{ lastItem }}</span>
@@ -21,6 +25,9 @@ export default {
     },
     addition: {
       type: Array,
+    },
+    col: {
+      type: Number,
     },
   },
   computed: {

@@ -2,7 +2,7 @@
   <div class="answer-block">
     <div class="container">
       <div class="row">
-        <div class="col m4">
+        <div class="col m4 wow fadeInLeft">
           <div class="answer-title">Ответы на популярные вопросы</div>
           <p class="subscription">
             Не нашли ответа на интересующий вопрос? Напишите нам в соцсетях или
@@ -13,7 +13,7 @@
         </div>
         <div class="offset-m1 col m7">
           <ul class="collapsible">
-            <li>
+            <li class="wow fadeInRight" data-wow-delay="30ms">
               <div class="collapsible-header">
                 <span class="material-icons"> add </span>Что такое пробный урок?
               </div>
@@ -25,7 +25,7 @@
                 </p>
               </div>
             </li>
-            <li>
+            <li class="wow fadeInRight" data-wow-delay="30ms">
               <div class="collapsible-header">
                 <span class="material-icons"> add </span>Пробный урок можно
                 получить только после оплаты?
@@ -37,7 +37,7 @@
                 </p>
               </div>
             </li>
-            <li>
+            <li class="wow fadeInRight" data-wow-delay="30ms">
               <div class="collapsible-header">
                 <span class="material-icons"> add </span>Что необходимо для
                 обучения?
@@ -49,7 +49,7 @@
                 </p>
               </div>
             </li>
-            <li>
+            <li class="wow fadeInRight" data-wow-delay="30ms">
               <div class="collapsible-header">
                 <span class="material-icons"> add </span>Что если не получится
                 прийти на урок?
@@ -61,7 +61,7 @@
                 </p>
               </div>
             </li>
-            <li>
+            <li class="wow fadeInRight" data-wow-delay="30ms">
               <div class="collapsible-header">
                 <span class="material-icons"> add </span>Сколько времени
                 придется уделять учебе?
@@ -74,7 +74,7 @@
                 </p>
               </div>
             </li>
-            <li>
+            <li class="wow fadeInRight" data-wow-delay="30ms">
               <div class="collapsible-header">
                 <span class="material-icons"> add </span>Сколько длится один
                 урок?
@@ -83,7 +83,7 @@
                 <p>Каждый урок длится 45 минут.</p>
               </div>
             </li>
-            <li>
+            <li class="wow fadeInRight" data-wow-delay="30ms">
               <div class="collapsible-header">
                 <span class="material-icons"> add </span>Когда происходит оплата
                 за обучение?

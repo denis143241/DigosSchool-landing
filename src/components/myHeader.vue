@@ -1,5 +1,5 @@
 <template>
-  <nav>
+  <nav class="wow fadeIn">
     <div class="container">
       <div class="nav-wrapper">
         <a href="#" class="brand-logo">DIGOS<strong>SCHOOL</strong></a>
@@ -25,7 +25,7 @@ nav {
 }
 #nav-mobile {
   font-family: @dop-font;
-  letter-spacing: 0.90px !important;
+  letter-spacing: 0.9px !important;
 }
 .brand-logo {
   font-family: @dop-font;

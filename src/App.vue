@@ -3,7 +3,7 @@
     <my-header />
     <div class="container">
       <div class="row header-main-info">
-        <div class="col m8">
+        <div class="col m8 wow fadeInLeft">
           <img src="./assets/Ellipse.png" />
           <transition
             :duration="1500"
@@ -30,9 +30,10 @@
         </div>
         <div class="col m4 flags">
           <div
-            v-for="circle in circles"
+            v-for="(circle, idx) in circles"
             :key="circle.id"
-            class="circlesFlag-row"
+            class="circlesFlag-row wow fadeInRight"
+            :data-wow-delay="`${idx * 100}ms`"
           >
             <transition name="my-flip">
               <div
@@ -63,16 +64,19 @@
       <div class="row">
         <div class="col m6">
           <async-target-block
+            :col="1"
             :img="targetsData[0].img"
             :title="targetsData[0].title"
             :addition="targetsData[0].additions"
           />
           <async-target-block
+            :col="1"
             :img="targetsData[1].img"
             :title="targetsData[1].title"
             :addition="targetsData[1].additions"
           />
           <async-target-block
+            :col="1"
             class="last"
             :img="targetsData[2].img"
             :title="targetsData[2].title"
@@ -81,11 +85,13 @@
         </div>
         <div class="col m6 shifted">
           <async-target-block
+            :col="2"
             :img="targetsData[3].img"
             :title="targetsData[3].title"
             :addition="targetsData[3].additions"
           />
           <async-target-block
+            :col="2"
             :img="targetsData[4].img"
             :title="targetsData[4].title"
             :addition="targetsData[4].additions"
@@ -125,6 +131,9 @@ import reviewsBlock from "./components/reviewsBlock.vue";
 import myCalendar from "./components/myCalendar.vue";
 import myFooter from "./components/myFooter.vue";
 
+// import WOW from "../node_modules/wowjs/dist/wow";
+import { WOW } from "wowjs";
+
 export default {
   components: {
     myBtn,
@@ -147,6 +156,9 @@ export default {
     this.img = currentLanguage.img;
   },
   mounted() {
+    // const wow = new WOW().init();
+    // console.log(wow);
+    new WOW().init();
     setInterval(() => {
       let randEl = Math.floor(Math.random() * this.foreignBox.length);
       while (this.img == this.foreignBox[randEl].img) {

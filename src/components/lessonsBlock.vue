@@ -2,7 +2,13 @@
   <main-title class="title">Уроки по изучению иностранного языка</main-title>
   <div class="container">
     <div class="row">
-      <div v-for="card in cards" :key="card.title" class="col m6">
+      <div
+        v-for="(card, idx) in cards"
+        :key="card.title"
+        class="col m6 wow"
+        :class="{ fadeInRight: idx % 2 === 1, fadeInLeft: idx % 2 === 0 }"
+        data-wow-delay="100ms"
+      >
         <learning-card :image="card.img">
           <template #title
             ><p class="title">{{ card.title }}</p></template
