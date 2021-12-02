@@ -11,13 +11,13 @@
         </div>
         <div class="col m6 addition wow fadeInRight">
           <h6>
-            Громкостнoй прогрессийный период традиционен. Также контрапункт
-            контрастных фактур, и это особенно заметно у Чарли Паркера или Джона
-            Колтрейна,
+            Онлайн-уроки с преподавателями из любой точки мира. Затягивающие
+            онлайн-тренажеры, интерактивные упражнения, уникальные видео и игры.
+            Учить иностранный еще никогда не было так просто и интересно.
           </h6>
         </div>
       </div>
-
+      <div class="between"></div>
       <div class="row features">
         <div class="col m3">
           <div class="feature-block">
@@ -95,6 +95,10 @@ export default {
 
 <style lang="less" scoped>
 @import url("../assets/mainStyle.less");
+.between {
+  width: 100%;
+  padding: 50px 0;
+}
 .container {
   font-family: @dop-font;
   letter-spacing: 0.8px;
