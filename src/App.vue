@@ -17,11 +17,15 @@
           <div class="btns">
             <div class="row">
               <div class="col m4">
-                <my-btn class="addition-for-btn">Узнать больше</my-btn>
+                <a href="#about"
+                  ><my-btn class="addition-for-btn">Узнать больше</my-btn></a
+                >
               </div>
               <div class="col m4">
-                <my-btn color="f1968f" class="addition-for-btn"
-                  >К практике</my-btn
+                <a href="#test"
+                  ><my-btn color="f1968f" class="addition-for-btn"
+                    >К практике</my-btn
+                  ></a
                 >
                 <!-- <my-btn color="FFCC80"> К практике </my-btn> -->
               </div>
@@ -445,5 +449,11 @@ body {
 }
 .fz-50 {
   font-size: 60px !important;
+}
+</style>
+
+<style lang="less">
+html {
+  scroll-behavior: smooth;
 }
 </style>

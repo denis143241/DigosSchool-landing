@@ -1,5 +1,5 @@
 <template>
-  <div class="answer-block">
+  <div id="answer" class="answer-block">
     <div class="container">
       <div class="row">
         <div class="col m4 wow fadeInLeft">

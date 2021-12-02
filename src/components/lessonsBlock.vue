@@ -1,5 +1,7 @@
 <template>
-  <main-title class="title">Уроки по изучению иностранного языка</main-title>
+  <main-title id="lessons" class="title"
+    >Уроки по изучению иностранного языка</main-title
+  >
   <div class="container">
     <div class="row">
       <div

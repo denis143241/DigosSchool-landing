@@ -1,5 +1,5 @@
 <template>
-  <div class="parallax-container">
+  <div id="about" class="parallax-container">
     <div ref="parallax" class="parallax">
       <img src="../assets/frame-1_fit_medium.png" />
     </div>
@@ -18,30 +18,28 @@
         </div>
       </div>
 
-      <div class="line"></div>
-
       <div class="row features">
         <div class="col m3">
           <div class="feature-block">
-            <p class="strong-text">>500</p>
+            <p class="strong-text" ref="features">>{{ finished }}</p>
             <p class="description">Выпускников</p>
           </div>
         </div>
         <div class="col m3">
           <div class="feature-block">
-            <p class="strong-text">>20</p>
+            <p class="strong-text">>{{ teachers }}</p>
             <p class="description">Преподавателей</p>
           </div>
         </div>
         <div class="col m3">
           <div class="feature-block">
-            <p class="strong-text">>5</p>
+            <p class="strong-text">>{{ programs }}</p>
             <p class="description">Программ обучения</p>
           </div>
         </div>
         <div class="col m3">
           <div class="feature-block">
-            <p class="strong-text">>30</p>
+            <p class="strong-text">>{{ bonuses }}</p>
             <p class="description">Различных бонусов</p>
           </div>
         </div>
@@ -58,6 +56,39 @@ import M from "../../node_modules/materialize-css";
 export default {
   mounted() {
     M.AutoInit();
+    document.addEventListener("scroll", () => {
+      if (this.isVisible() && this.scrollIs === false) {
+        this.scrollNumbers();
+      }
+    });
+  },
+  data() {
+    return {
+      finished: 0,
+      teachers: 0,
+      programs: 0,
+      bonuses: 0,
+      scrollIs: false,
+    };
+  },
+  methods: {
+    isVisible() {
+      let coords = this.$refs.features.getBoundingClientRect();
+      let windowHeight = document.documentElement.clientHeight;
+      let topVisible = windowHeight - coords.top;
+      return topVisible - 30 > 0;
+    },
+    scrollNumbers() {
+      (this.scrollIs = true),
+        setInterval(() => {
+          let counter = 0;
+          this.finished < 500 ? (this.finished += 10) : (counter += 1);
+          this.teachers < 20 ? this.teachers++ : (counter += 1);
+          this.programs < 5 ? this.programs++ : (counter += 1);
+          this.bonuses < 30 ? this.bonuses++ : (counter += 1);
+          if (counter >= 4) return;
+        }, 30);
+    },
   },
 };
 </script>
@@ -66,7 +97,7 @@ export default {
 @import url("../assets/mainStyle.less");
 .container {
   font-family: @dop-font;
-  letter-spacing: .8px;
+  letter-spacing: 0.8px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -110,12 +141,6 @@ export default {
   font-weight: 300;
   font-size: 20px;
   text-transform: uppercase;
-}
-.line {
-  height: 2px;
-  width: 100%;
-  background-color: #f1968f;
-  margin: 50px 0;
 }
 h6 {
   text-align: center;
