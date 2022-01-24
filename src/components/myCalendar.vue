@@ -13,7 +13,7 @@
         >
           <div v-if="step === 0" class="calendar-block date_and_time">
             <div class="row">
-              <div class="col m4 menu">
+              <div class="col m4 menu" :class="{ hidden: isLess720 }">
                 <!-- Menu -->
                 <h3>Онлайн запись</h3>
                 <ul>
@@ -66,8 +66,8 @@
         >
           <div v-if="step === 1" class="calendar-block language">
             <div class="row">
-              <div class="col m4 menu">
-                <!-- Menu -->
+              <div class="col m4 menu" :class="{ hidden: isLess720 }">
+                <!-- Menu 2 -->
                 <h3>Онлайн запись</h3>
                 <ul>
                   <li>
@@ -110,7 +110,7 @@
         >
           <div v-if="step === 2" class="calendar-block kinds">
             <div class="row">
-              <div class="col m4 menu">
+              <div class="col m4 menu" :class="{ hidden: isLess720 }">
                 <!-- Menu -->
                 <h3>Онлайн запись</h3>
                 <ul>
@@ -177,7 +177,7 @@
         >
           <div v-if="step === 3" class="calendar-block contacts">
             <div class="row">
-              <div class="col m4 menu">
+              <div class="col m4 menu" :class="{ hidden: isLess720 }">
                 <!-- Menu -->
                 <h3>Онлайн запись</h3>
                 <ul>
@@ -262,14 +262,21 @@ export default {
     listOfLanguages,
     MainTitle,
   },
+  unmounted() {
+    window.removeEventListener("resize", this.determinedWindowWidth);
+  },
   data() {
     return {
       step: 0,
       kind: "",
       fi: 100,
+      isLess720: window.screen.width < 720,
     };
   },
   methods: {
+    determinedWindowWidth() {
+      this.isLess720 = window.screen.width < 600;
+    },
     next() {
       this.step++;
     },
@@ -289,6 +296,7 @@ export default {
     },
   },
   mounted() {
+    window.addEventListener("resize", this.determinedWindowWidth);
     document.addEventListener("scroll", () => {
       let [top, bottom] = this.isVisible();
       let additionScroll = (document.documentElement.clientHeight - 550) / 2;
@@ -367,7 +375,7 @@ export default {
   & h3 {
     font-family: @dop-font;
     font-weight: 900px;
-    letter-spacing: .5px;
+    letter-spacing: 0.5px;
     text-align: center;
     color: #000;
     text-transform: inherit;
@@ -452,7 +460,7 @@ img {
 ul {
   font-family: @dop-font;
   color: @dop-color;
-  letter-spacing: .8px;
+  letter-spacing: 0.8px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -489,7 +497,7 @@ h2 {
 }
 .right-panel {
   font-family: @dop-font;
-  letter-spacing: .8px;
+  letter-spacing: 0.8px;
   padding: 0 60px 0 40px !important;
   display: flex;
   flex-direction: column;
@@ -522,6 +530,14 @@ h2 {
   &:focus {
     border-bottom: 1px solid #f17f77 !important;
     box-shadow: 0 1px 0 0 #f17f77 !important;
+  }
+}
+.hidden {
+  display: none;
+}
+@media only screen and (max-width: 720px) {
+  .calendar {
+    margin-top: 800px;
   }
 }
 </style>
