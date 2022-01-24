@@ -50,6 +50,7 @@ export default {
 <style lang="less" scoped>
 .famous-quots {
   margin-bottom: 170px;
+  width: 100%;
 }
 .title {
   margin-bottom: 0;

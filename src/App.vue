@@ -20,12 +20,12 @@
           </transition>
           <div class="btns">
             <div class="row">
-              <div class="col l4 m6 s12">
+              <div class="col l4 m6 s11">
                 <a href="#about"
                   ><the-btn class="addition-for-btn">Узнать больше</the-btn></a
                 >
               </div>
-              <div class="col l4 m6 s12">
+              <div class="col l4 m6 s11">
                 <a href="#test">
                   <the-btn color="f1968f" class="addition-for-btn"
                     >К практике</the-btn
@@ -66,7 +66,7 @@
 
   <famous-quots />
 
-  <section id="targets">
+  <!-- <section id="targets">
     <main-title>Цели изучения иностранного языка</main-title>
     <div class="container">
       <div class="row">
@@ -119,7 +119,7 @@
 
   <my-calendar />
 
-  <my-footer />
+  <my-footer /> -->
 </template>
 
 <script>
@@ -130,14 +130,14 @@ import TheBtn from "./components/TheBtn.vue";
 import myHeader from "./components/myHeader.vue";
 import parallaxBlock from "./components/parallaxBlock.vue";
 import famousQuots from "./components/famousQuots.vue";
-import asyncTargetBlock from "./components/asyncTargetBlock.vue";
-import mainTitle from "./components/mainTitle.vue";
-import simpleTest from "./components/simpleTest.vue";
-import lessonsBlock from "./components/lessonsBlock.vue";
-import answerBlock from "./components/answerBlock.vue";
-import reviewsBlock from "./components/reviewsBlock.vue";
-import myCalendar from "./components/myCalendar.vue";
-import myFooter from "./components/myFooter.vue";
+// import asyncTargetBlock from "./components/asyncTargetBlock.vue";
+// import mainTitle from "./components/mainTitle.vue";
+// import simpleTest from "./components/simpleTest.vue";
+// import lessonsBlock from "./components/lessonsBlock.vue";
+// import answerBlock from "./components/answerBlock.vue";
+// import reviewsBlock from "./components/reviewsBlock.vue";
+// import myCalendar from "./components/myCalendar.vue";
+// import myFooter from "./components/myFooter.vue";
 
 // import WOW from "../node_modules/wowjs/dist/wow";
 import { WOW } from "wowjs";
@@ -148,14 +148,14 @@ export default {
     myHeader,
     parallaxBlock,
     famousQuots,
-    asyncTargetBlock,
-    mainTitle,
-    simpleTest,
-    lessonsBlock,
-    answerBlock,
-    reviewsBlock,
-    myCalendar,
-    myFooter,
+    // asyncTargetBlock,
+    // mainTitle,
+    // simpleTest,
+    // lessonsBlock,
+    // answerBlock,
+    // reviewsBlock,
+    // myCalendar,
+    // myFooter,
   },
   created() {
     let currentLanguage = this.foreignBox[0];
@@ -462,7 +462,7 @@ body {
   font-size: 60px !important;
 }
 .mobile-title {
-  font-size: 55px;
+  font-size: 50px;
 }
 
 @media only screen and (max-width: 600px) {
@@ -471,12 +471,20 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    & img {
+      width: 70%;
+    }
   }
   .btns {
+    margin-top: 70px;
     width: 100%;
   }
 }
-
+@media only screen and (max-width: 300px) {
+  .mobile-title {
+    font-size: 40px;
+  }
+}
 </style>
 
 <style lang="less">

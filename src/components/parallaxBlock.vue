@@ -19,25 +19,25 @@
       </div>
       <div class="between"></div>
       <div class="row features">
-        <div class="col m3">
+        <div class="col l3 m6 s12">
           <div class="feature-block">
             <p class="strong-text" ref="features">>{{ finished }}</p>
             <p class="description">Выпускников</p>
           </div>
         </div>
-        <div class="col m3">
+        <div class="col l3 m6 s12">
           <div class="feature-block">
             <p class="strong-text">>{{ teachers }}</p>
             <p class="description">Преподавателей</p>
           </div>
         </div>
-        <div class="col m3">
+        <div class="col l3 m6 s12">
           <div class="feature-block">
             <p class="strong-text">>{{ programs }}</p>
             <p class="description">Программ обучения</p>
           </div>
         </div>
-        <div class="col m3">
+        <div class="col l3 m6 s12">
           <div class="feature-block">
             <p class="strong-text">>{{ bonuses }}</p>
             <p class="description">Различных бонусов</p>
@@ -109,7 +109,8 @@ export default {
 }
 .parallax-container {
   margin-bottom: 170px;
-  height: 900px;
+  min-height: 900px !important;
+  height: 100%;
   color: #fff;
 }
 .features {
@@ -117,6 +118,7 @@ export default {
 }
 .upper-part {
   position: relative;
+  margin: 100px 0 0 0;
 }
 .feature-block {
   color: #fff;
@@ -164,5 +166,32 @@ h3 {
   font-weight: 700;
   text-align: center;
   margin: 0;
+}
+#about {
+  width: 100%;
+}
+
+@media only screen and (max-width: 600px) {
+  .upper-part {
+    margin: 50px 0 0 0;
+  }
+  .feature-block {
+    box-shadow: 0 0 10px rgba(161, 110, 110, 0.5);
+    margin: 20px 0;
+  }
+  h4,
+  h3,
+  h6 {
+    margin: 40px 0 0;
+  }
+  .parallax-container .parallax img {
+    left: 0;
+  }
+}
+@media only screen and (max-width: 990px) {
+  .feature-block {
+    box-shadow: 0 0 10px rgba(161, 110, 110, 0.5);
+    margin: 20px 0;
+  }
 }
 </style>

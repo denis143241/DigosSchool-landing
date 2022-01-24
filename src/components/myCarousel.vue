@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div ref="carousel" class="carousel wow fadeInDown">
-      <a v-for="quote of quotes" :key="quote.quote" class="carousel-item"
+      <a v-for="quote of quotes" :key="quote.quote" class="carousel-item abc"
         ><quote-card :quote="quote"></quote-card
       ></a>
     </div>
@@ -31,11 +31,6 @@ export default {
 
 <style lang="less" scoped>
 @import url("../assets/mainStyle.less");
-.quote {
-  width: 100%;
-  height: 300px;
-  background-color: #aeaeae;
-}
 .carousel .carousel-item {
   width: 500px;
 }
@@ -45,5 +40,14 @@ export default {
 }
 a:hover {
   cursor: context-menu;
+}
+@media only screen and (max-width: 600px) {
+  .carousel .carousel-item {
+    width: 100%;
+    height: 300px;
+  }
+  .carousel {
+    perspective: none;
+  }
 }
 </style>

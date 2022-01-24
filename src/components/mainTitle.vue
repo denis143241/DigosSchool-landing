@@ -15,4 +15,9 @@
   font-size: 40px;
   margin: 20px 0 40px;
 }
+@media only screen and (max-width: 600px) {
+  .main-title {
+    font-size: 30px;
+  }
+}
 </style>

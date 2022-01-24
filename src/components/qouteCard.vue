@@ -2,15 +2,15 @@
   <div class="card">
     <div class="quote_and_line">
       <div class="quote"></div>
-      <div class="line line-top"></div>
+      <div class="line right line-bottom"></div>
     </div>
     <div class="content">
       <div class="title">{{ quote.name }}</div>
       <p :style="{ fontSize: `${size}px` }">{{ quote.quote }}</p>
     </div>
     <div class="quote_and_line">
-      <div class="quote right"></div>
-      <div class="line right line-bottom"></div>
+      <div class="line left line-bottom"></div>
+      <div class="quote left"></div>
     </div>
   </div>
 </template>
@@ -84,6 +84,19 @@ p {
   &-top {
     margin-bottom: 17px;
     margin-left: 4%;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .card {
+    height: 100%;
+    max-height: 100%;
+  }
+  p {
+    font-size: 16px !important;
+  }
+  .quote_and_line {
+    display: flex;
   }
 }
 </style>
