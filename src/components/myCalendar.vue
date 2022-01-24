@@ -93,6 +93,9 @@
               <div class="col m8 right-panel">
                 <h2>Выберите язык</h2>
                 <list-of-languages :size="3" />
+                <div class="row">
+                  <div class="col s6"></div>
+                </div>
                 <div class="forbtn">
                   <div class="btns">
                     <my-btn @click="prev" class="btn-prev">Назад</my-btn>
@@ -275,7 +278,7 @@ export default {
   },
   methods: {
     determinedWindowWidth() {
-      this.isLess720 = window.screen.width < 600;
+      this.isLess720 = window.screen.width < 720;
     },
     next() {
       this.step++;
@@ -536,8 +539,16 @@ h2 {
   display: none;
 }
 @media only screen and (max-width: 720px) {
-  .calendar {
-    margin-top: 800px;
+  .free-lesson-form {
+    margin-top: 1150px;
+  }
+  .btn {
+    &-next {
+      width: 150px;
+    }
+    &-prev {
+      width: 150px;
+    }
   }
 }
 </style>
