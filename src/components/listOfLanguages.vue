@@ -1,6 +1,10 @@
 <template>
   <div class="row">
-    <div v-for="(lang, idx) in contries" :key="lang" :class="`col m${size}`">
+    <div
+      v-for="(lang, idx) in contries"
+      :key="lang"
+      :class="`col m${size} s12`"
+    >
       <div
         class="special-for-anim"
         :class="{ 'wow fadeInDown': anim }"
@@ -79,6 +83,7 @@ export default {
   width: 100%;
   height: 50px;
   transition: 0.2s;
+  background-size: 100%;
   &:hover {
     box-shadow: 0 0 20px #f17f77;
     transform: scale(1.025);
@@ -97,5 +102,17 @@ h6 {
 .checked {
   box-shadow: 0 0 20px #f17f77;
   transform: scale(1.025);
+}
+
+@media only screen and (max-width: 600px) {
+  .flag {
+    width: 50%;
+    margin: 0 auto;
+    background-size: 100% !important;
+  }
+  .checked {
+    // width: 40%;
+    // background-size: 100% !important;
+  }
 }
 </style>

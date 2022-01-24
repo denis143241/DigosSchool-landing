@@ -17,7 +17,7 @@
             <list-of-languages :anim="true" :size="2" @stateLang="stateLang" />
           </div>
           <div class="row">
-            <div class="col m4 offset-m4 start-btn">
+            <div class="col m4 s12 offset-m4 start-btn">
               <my-btn color="f1968f" class="start" @click="startTest"
                 >Начать</my-btn
               >
