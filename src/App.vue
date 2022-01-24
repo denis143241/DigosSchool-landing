@@ -113,9 +113,9 @@
 
   <lessons-block />
 
-  <!-- <answer-block />
+  <answer-block />
 
-  <reviews-block />
+  <!-- <reviews-block />
 
   <my-calendar />
 
@@ -134,7 +134,7 @@ import asyncTargetBlock from "./components/asyncTargetBlock.vue";
 import mainTitle from "./components/mainTitle.vue";
 import simpleTest from "./components/simpleTest.vue";
 import lessonsBlock from "./components/lessonsBlock.vue";
-// import answerBlock from "./components/answerBlock.vue";
+import answerBlock from "./components/answerBlock.vue";
 // import reviewsBlock from "./components/reviewsBlock.vue";
 // import myCalendar from "./components/myCalendar.vue";
 // import myFooter from "./components/myFooter.vue";
@@ -152,7 +152,7 @@ export default {
     mainTitle,
     simpleTest,
     lessonsBlock,
-    // answerBlock,
+    answerBlock,
     // reviewsBlock,
     // myCalendar,
     // myFooter,

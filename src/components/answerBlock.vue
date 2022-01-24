@@ -2,7 +2,7 @@
   <div id="answer" class="answer-block">
     <div class="container">
       <div class="row">
-        <div class="col m4 wow fadeInLeft">
+        <div class="col m4 s12 wow fadeInLeft">
           <div class="answer-title">Ответы на популярные вопросы</div>
           <p class="subscription">
             Не нашли ответа на интересующий вопрос? Напишите нам в соцсетях или
@@ -11,7 +11,7 @@
           <social-media />
           <h3>8 (904) 651-88-71</h3>
         </div>
-        <div class="offset-m1 col m7">
+        <div class="offset-m1 col m7 s12">
           <ul class="collapsible">
             <li class="wow fadeInRight" data-wow-delay="30ms">
               <div class="collapsible-header">
@@ -137,6 +137,7 @@ export default {
     font-family: @dop-font;
     font-size: 18px;
     letter-spacing: 0.9px;
+    overflow: hidden;
   }
 }
 .subscription {
