@@ -2,7 +2,7 @@
   <main-title id="lessons" class="title"
     >Уроки по изучению иностранного языка</main-title
   >
-  <div class="container">
+  <div class="container" :style="{ overflow: 'hidden' }">
     <div class="row">
       <div
         v-for="(card, idx) in cards"

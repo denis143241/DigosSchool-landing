@@ -37,6 +37,7 @@ export default {
 @import url("../assets/mainStyle.less");
 .card {
   max-width: 500px;
+  
   font-family: @dop-font;
   letter-spacing: 0.9;
   &:hover {
