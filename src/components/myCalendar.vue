@@ -251,7 +251,7 @@
 </template>
 
 <script>
-import myBtn from "./myBtn.vue";
+import myBtn from "./TheBtn.vue";
 import listOfLanguages from "./listOfLanguages.vue";
 import M from "../../node_modules/materialize-css";
 import MainTitle from "./mainTitle.vue";

@@ -1,7 +1,7 @@
 <template>
-  <div class="my-button wow pulse">
+  <div class="the-button wow pulse">
     <button
-      class="my-btn"
+      class="the-btn"
       :style="{
         backgroundColor: `#${color}`,
         backgroundImage: `url(${bg})`,
@@ -12,7 +12,7 @@
       <slot />
     </button>
     <button
-      class="my-btn back"
+      class="the-btn back"
       :style="{
         border: `1px solid #${color}`,
         backgroundColor: `rgba(0,0,0,0)`,
@@ -52,23 +52,28 @@ export default {
     left: 7px;
   }
 }
-.my-button {
-  position: relative;
-  color: #fff;
-}
-.my-btn {
-  font-family: @dop-font;
-
-  position: absolute;
-  font-weight: 500;
-  letter-spacing: .8px;
-  border: 1px solid rgba(0, 0, 0, 1);
-  width: 85%;
-  padding: 12px 20px;
-  z-index: 20;
-  transition: all 200ms;
-  &:hover {
-    animation: on-hover 200ms forwards;
+.the {
+  &-button {
+    position: relative;
+    color: #fff;
+  }
+  &-btn {
+    font-family: @dop-font;
+    position: absolute;
+    font-weight: 500;
+    letter-spacing: 0.8px;
+    border: 1px solid rgba(0, 0, 0, 1);
+    width: 85%;
+    padding: 12px 20px;
+    z-index: 20;
+    transition: all 200ms;
+    &:hover {
+      animation: on-hover 200ms forwards;
+    }
+    &:focus {
+      outline: none;
+      background-color: #f17f77;
+    }
   }
 }
 .back {
@@ -79,15 +84,6 @@ export default {
   background-color: rgba(0, 0, 0, 0);
   &:hover {
     animation: none;
-  }
-}
-</style>
-
-<style lang="less">
-.my-btn {
-  &:focus {
-    outline: none;
-    background-color: #f17f77;
   }
 }
 </style>

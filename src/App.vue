@@ -3,36 +3,40 @@
     <my-header />
     <div class="container">
       <div class="row header-main-info">
-        <div class="col m8 wow fadeInLeft">
+        <div class="img-dinamic-title col m8 s12 wow fadeInLeft">
           <img src="./assets/Ellipse.png" />
           <transition
-            :duration="1500"
+            :duration="900"
             enter-active-class="animated fadeIn"
             leave-active-class="animated fadeOut"
           >
-            <div :key="firstLineTitle" class="header-title">
+            <div
+              :key="firstLineTitle"
+              class="header-title"
+              :class="{ 'mobile-title': isMobile }"
+            >
               {{ firstLineTitle }}<br />{{ secondLineTitle }}
             </div>
           </transition>
           <div class="btns">
             <div class="row">
-              <div class="col m4">
+              <div class="col l4 m6 s12">
                 <a href="#about"
-                  ><my-btn class="addition-for-btn">Узнать больше</my-btn></a
+                  ><the-btn class="addition-for-btn">Узнать больше</the-btn></a
                 >
               </div>
-              <div class="col m4">
-                <a href="#test"
-                  ><my-btn color="f1968f" class="addition-for-btn"
-                    >К практике</my-btn
-                  ></a
-                >
-                <!-- <my-btn color="FFCC80"> К практике </my-btn> -->
+              <div class="col l4 m6 s12">
+                <a href="#test">
+                  <the-btn color="f1968f" class="addition-for-btn"
+                    >К практике</the-btn
+                  >
+                </a>
               </div>
             </div>
           </div>
         </div>
-        <div class="col m4 flags">
+
+        <div class="col m4 flags hide-on-small-only">
           <div
             v-for="(circle, idx) in circles"
             :key="circle.id"
@@ -122,7 +126,7 @@
 // [х] 1. Добить на компоненты
 // [] 2. Шапку на главном экране сделать бесцветной, когда экран уедет ниже главного покрасить ее и закрепить в вверху
 
-import myBtn from "./components/myBtn.vue";
+import TheBtn from "./components/TheBtn.vue";
 import myHeader from "./components/myHeader.vue";
 import parallaxBlock from "./components/parallaxBlock.vue";
 import famousQuots from "./components/famousQuots.vue";
@@ -140,7 +144,7 @@ import { WOW } from "wowjs";
 
 export default {
   components: {
-    myBtn,
+    TheBtn,
     myHeader,
     parallaxBlock,
     famousQuots,
@@ -160,8 +164,7 @@ export default {
     this.img = currentLanguage.img;
   },
   mounted() {
-    // const wow = new WOW().init();
-    // console.log(wow);
+    window.addEventListener("resize", this.determineMobile);
     new WOW().init();
     setInterval(() => {
       let randEl = Math.floor(Math.random() * this.foreignBox.length);
@@ -174,6 +177,9 @@ export default {
       this.img = currentLanguage.img;
     }, 5000);
   },
+  unmounted() {
+    window.removeEventListener("resize", this.determineMobile);
+  },
   data() {
     return {
       color: "#555",
@@ -183,6 +189,7 @@ export default {
       secondLineTitle: "",
       img: "",
       seems: { name: 1 },
+      isMobile: window.screen.width,
       circles: [
         { sign1: "", sign2: "", id: "first", sims: this.seems },
         { sign1: "", sign2: "-", id: "second", sims: this.seems },
@@ -263,6 +270,10 @@ export default {
     getMousePos(event) {
       this.mouseX = event.clientX;
       this.mouseY = event.clientY;
+    },
+    determineMobile() {
+      this.isMobile = window.screen.width < 600;
+      console.log(this.isMobile);
     },
   },
   computed: {
@@ -450,6 +461,22 @@ body {
 .fz-50 {
   font-size: 60px !important;
 }
+.mobile-title {
+  font-size: 55px;
+}
+
+@media only screen and (max-width: 600px) {
+  .img-dinamic-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .btns {
+    width: 100%;
+  }
+}
+
 </style>
 
 <style lang="less">

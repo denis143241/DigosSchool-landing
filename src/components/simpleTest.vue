@@ -56,7 +56,7 @@
 
 <script>
 import mainTitle from "./mainTitle.vue";
-import myBtn from "./myBtn.vue";
+import myBtn from "./TheBtn.vue";
 import enTest from "./enTest.vue";
 import listOfLanguages from "./listOfLanguages.vue";
 export default {
