@@ -66,11 +66,11 @@
 
   <famous-quots />
 
-  <!-- <section id="targets">
+  <section id="targets">
     <main-title>Цели изучения иностранного языка</main-title>
     <div class="container">
       <div class="row">
-        <div class="col m6">
+        <div class="col m6 s12">
           <async-target-block
             :col="1"
             :img="targetsData[0].img"
@@ -91,7 +91,7 @@
             :addition="targetsData[2].additions"
           />
         </div>
-        <div class="col m6 shifted">
+        <div class="col m6 s12 shifted">
           <async-target-block
             :col="2"
             :img="targetsData[3].img"
@@ -111,7 +111,7 @@
 
   <simple-test />
 
-  <lessons-block />
+  <!-- <lessons-block />
 
   <answer-block />
 
@@ -130,9 +130,9 @@ import TheBtn from "./components/TheBtn.vue";
 import myHeader from "./components/myHeader.vue";
 import parallaxBlock from "./components/parallaxBlock.vue";
 import famousQuots from "./components/famousQuots.vue";
-// import asyncTargetBlock from "./components/asyncTargetBlock.vue";
-// import mainTitle from "./components/mainTitle.vue";
-// import simpleTest from "./components/simpleTest.vue";
+import asyncTargetBlock from "./components/asyncTargetBlock.vue";
+import mainTitle from "./components/mainTitle.vue";
+import simpleTest from "./components/simpleTest.vue";
 // import lessonsBlock from "./components/lessonsBlock.vue";
 // import answerBlock from "./components/answerBlock.vue";
 // import reviewsBlock from "./components/reviewsBlock.vue";
@@ -148,9 +148,9 @@ export default {
     myHeader,
     parallaxBlock,
     famousQuots,
-    // asyncTargetBlock,
-    // mainTitle,
-    // simpleTest,
+    asyncTargetBlock,
+    mainTitle,
+    simpleTest,
     // lessonsBlock,
     // answerBlock,
     // reviewsBlock,
@@ -451,6 +451,9 @@ body {
   height: 40px;
   margin-left: 20%;
   background-color: #e45a5a;
+}
+#targets {
+  overflow: hidden;
 }
 .common {
   background: none;
