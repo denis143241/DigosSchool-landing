@@ -70,4 +70,22 @@ p {
   letter-spacing: .9px;
   margin-top: 10px;
 }
+
+@media only screen and (max-width: 720px) {
+  .card {
+    width: 100%;
+  }
+  img {
+    margin: 0 auto;
+  }
+  .name {
+    &::after {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+  .name, .description {
+    text-align: center;
+  }
+}
 </style>

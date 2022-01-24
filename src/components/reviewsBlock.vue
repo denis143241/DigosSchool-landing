@@ -91,4 +91,13 @@ h4 {
   margin-top: 50px;
   // margin-left: 30px;
 }
+
+@media only screen and (max-width: 720px) {
+  .parallax-container {
+    width: 100%;
+  }
+  .cards {
+    flex-direction: column;
+  }
+}
 </style>

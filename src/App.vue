@@ -115,9 +115,9 @@
 
   <answer-block />
 
-  <!-- <reviews-block />
+  <reviews-block />
 
-  <my-calendar />
+  <!-- <my-calendar />
 
   <my-footer /> -->
 </template>
@@ -135,7 +135,7 @@ import mainTitle from "./components/mainTitle.vue";
 import simpleTest from "./components/simpleTest.vue";
 import lessonsBlock from "./components/lessonsBlock.vue";
 import answerBlock from "./components/answerBlock.vue";
-// import reviewsBlock from "./components/reviewsBlock.vue";
+import reviewsBlock from "./components/reviewsBlock.vue";
 // import myCalendar from "./components/myCalendar.vue";
 // import myFooter from "./components/myFooter.vue";
 
@@ -153,7 +153,7 @@ export default {
     simpleTest,
     lessonsBlock,
     answerBlock,
-    // reviewsBlock,
+    reviewsBlock,
     // myCalendar,
     // myFooter,
   },
