@@ -1,5 +1,5 @@
 <template>
-  <div class="free-lesson-form wow fadeInDown">
+  <div class="free-lesson-form fadeInDown" :class="{ wow: isDesktop }">
     <main-title>Записаться на бесплатное занятие</main-title>
     <div class="container">
       <div
@@ -14,7 +14,7 @@
           <div v-if="step === 0" class="calendar-block date_and_time">
             <div class="row">
               <div class="col m4 menu" :class="{ hidden: isLess720 }">
-                <!-- Menu -->
+                <!-- Menu 1 -->
                 <h3>Онлайн запись</h3>
                 <ul>
                   <li>
@@ -37,7 +37,7 @@
                   </li>
                 </ul>
               </div>
-              <div class="col m8 right-panel">
+              <div class="col m8 s12 right-panel" :class="{ m12: isLess720 }">
                 <h2>Выберите дату и время</h2>
                 <input
                   ref="calendar"
@@ -90,9 +90,68 @@
                   </li>
                 </ul>
               </div>
-              <div class="col m8 right-panel">
+              <div class="col m8 s12 right-panel" :class="{ m12: isLess720 }">
                 <h2>Выберите язык</h2>
-                <list-of-languages :size="3" />
+                <list-of-languages :size="3" v-if="!isLess720" />
+                <div v-else class="mobile-section">
+                  <div class="row">
+                    <div class="col s6">
+                      <div class="block">
+                        <p class="kind">
+                          <span
+                            @click="lang = 'en'"
+                            :class="{ kindchecked: kind === 'en' }"
+                            >Английский</span
+                          >
+                        </p>
+                      </div>
+                    </div>
+                    <div class="col s6">
+                      <div class="block">
+                        <p class="kind">
+                          <span
+                            @click="lang = 'ge'"
+                            :class="{ kindchecked: kind === 'ge' }"
+                            >Немецкий</span
+                          >
+                        </p>
+                      </div>
+                    </div>
+                    <div class="col s6">
+                      <div class="block">
+                        <p class="kind">
+                          <span
+                            @click="lang = 'fr'"
+                            :class="{ kindchecked: kind === 'fr' }"
+                            >Французкий</span
+                          >
+                        </p>
+                      </div>
+                    </div>
+                    <div class="col s6">
+                      <div class="block">
+                        <p class="kind">
+                          <span
+                            @click="lang = 'sp'"
+                            :class="{ kindchecked: kind === 'sp' }"
+                            >Испанский</span
+                          >
+                        </p>
+                      </div>
+                    </div>
+                    <div class="col s6">
+                      <div class="block">
+                        <p class="kind">
+                          <span
+                            @click="lang = 'it'"
+                            :class="{ kindchecked: kind === 'it' }"
+                            >Итальянский</span
+                          >
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
                 <div class="row">
                   <div class="col s6"></div>
                 </div>
@@ -137,10 +196,10 @@
                   </li>
                 </ul>
               </div>
-              <div class="col m8 right-panel">
+              <div class="col m8 s12 right-panel" :class="{ m12: isLess720 }">
                 <h2>Выберите вид занятия</h2>
                 <div class="row">
-                  <div class="col m4">
+                  <div class="col m6">
                     <div class="block">
                       <p class="kind">
                         <span
@@ -151,7 +210,7 @@
                       </p>
                     </div>
                   </div>
-                  <div class="col m4">
+                  <div class="col m6">
                     <div class="block">
                       <p class="kind">
                         <span
@@ -204,17 +263,17 @@
                   </li>
                 </ul>
               </div>
-              <div class="col m8 right-panel">
+              <div class="col m8 s12 right-panel" :class="{ m12: isLess720 }">
                 <h2>Укажите имя и телефон</h2>
                 <div class="row">
-                  <div class="col m12">
+                  <div class="col m12 s12">
                     <input
                       class="contacts-input"
                       type="text"
                       placeholder="Ваше имя"
                     />
                   </div>
-                  <div class="col m12">
+                  <div class="col m12 s12">
                     <input
                       class="contacts-input"
                       type="text"
@@ -274,6 +333,8 @@ export default {
       kind: "",
       fi: 100,
       isLess720: window.screen.width < 720,
+      isDesktop: window.screen.width > 992,
+      lang: "",
     };
   },
   methods: {
@@ -396,6 +457,7 @@ export default {
 }
 .free-lesson-form {
   margin: 350px 0 170px;
+  overflow: hidden;
 }
 .calendar {
   position: relative;
@@ -539,9 +601,55 @@ h2 {
   display: none;
 }
 @media only screen and (max-width: 720px) {
-  .free-lesson-form {
-    margin-top: 1150px;
+  h2 {
+    font-size: 30px;
   }
+  // .right-panel {
+  //   position: absolute;
+  //   top: 0;
+  //   left: 0;
+  // }
+  .free-lesson-form {
+    margin-top: 1250px;
+    overflow: hidden;
+  }
+  .btn {
+    &-next {
+      width: 120px;
+    }
+    &-prev {
+      width: 120px;
+    }
+  }
+  .form-done {
+    text-align: center;
+    & img {
+      text-align: center;
+      width: 64px;
+      height: 64px;
+    }
+    & h3 {
+      font-family: @dop-font;
+      font-weight: 900px;
+      letter-spacing: 0.5px;
+      text-align: center;
+      color: #000;
+      text-transform: inherit;
+      font-size: 24px;
+      & span {
+        font-weight: 300;
+        font-size: 16px;
+        &::after {
+          background-color: rgba(0, 0, 0, 0);
+        }
+        &:hover {
+          cursor: inherit;
+        }
+      }
+    }
+  }
+}
+@media only screen and (max-width: 830px) {
   .btn {
     &-next {
       width: 150px;
