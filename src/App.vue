@@ -119,7 +119,7 @@
 
   <my-calendar />
 
-  <!-- <my-footer /> -->
+  <my-footer />
 </template>
 
 <script>
@@ -137,7 +137,7 @@ import lessonsBlock from "./components/lessonsBlock.vue";
 import answerBlock from "./components/answerBlock.vue";
 import reviewsBlock from "./components/reviewsBlock.vue";
 import myCalendar from "./components/myCalendar.vue";
-//import myFooter from "./components/myFooter.vue";
+import myFooter from "./components/myFooter.vue";
 
 // import WOW from "../node_modules/wowjs/dist/wow";
 import { WOW } from "wowjs";
@@ -155,7 +155,7 @@ export default {
     answerBlock,
     reviewsBlock,
     myCalendar,
-    //myFooter,
+    myFooter,
   },
   created() {
     let currentLanguage = this.foreignBox[0];

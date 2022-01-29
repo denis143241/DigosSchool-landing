@@ -110,9 +110,5 @@ h6 {
     margin: 0 auto;
     background-size: 100% !important;
   }
-  .checked {
-    // width: 40%;
-    // background-size: 100% !important;
-  }
 }
 </style>

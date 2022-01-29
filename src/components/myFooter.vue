@@ -5,7 +5,7 @@
     </div>
     <div class="container">
       <div class="row footer-content wow fadeIn" data-wow-delay="300ms">
-        <div class="col m3">
+        <div class="col l3 m4 s6">
           <div class="subtitle">
             <div class="logo">DIGOSSCHOOL</div>
           </div>
@@ -14,10 +14,10 @@
             <li><a href="#">Карьера в DIGOSSCHOOL</a></li>
             <li><a href="#">Отзывы</a></li>
             <li><a href="#">Адресса и телефоны</a></li>
-            <li class="social"><social-media /></li>
+            <li class="social hide-on-small-only"><social-media /></li>
           </ul>
         </div>
-        <div class="col m3">
+        <div class="col l3 m4 s6">
           <div class="subtitle">Обучение</div>
           <ul>
             <li><a href="#">Процесс</a></li>
@@ -27,13 +27,13 @@
             <li><a href="#">Подарить сертификат</a></li>
           </ul>
         </div>
-        <div class="col m3">
+        <div class="col l3 m4 s6">
           <div class="subtitle">Продукты</div>
           <ul>
             <li><a href="#">Онлайн образовательный портал</a></li>
           </ul>
         </div>
-        <div class="col m3">
+        <div class="col l3 m4 s6">
           <div class="subtitle">Дополнительно</div>
           <ul>
             <li><a href="#">Активация промокода</a></li>
@@ -42,18 +42,19 @@
             <li><a href="#">Цены</a></li>
           </ul>
         </div>
+        <div class="col s8 offset-s2 hide-on-med-and-up"><social-media /></div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import socialMedia from "./socialMedia.vue"
+import socialMedia from "./socialMedia.vue";
 export default {
   components: {
     socialMedia,
-  }
-}
+  },
+};
 </script>
 
 <style lang="less" scoped>
@@ -71,7 +72,7 @@ export default {
 }
 .logo {
   font-family: @dop-font;
-  letter-spacing: .9px;
+  letter-spacing: 0.9px;
   font-weight: 500;
   font-size: 30px;
 }
@@ -91,13 +92,28 @@ li {
 }
 a {
   font-family: @dop-font;
-  letter-spacing: .8px;
+  letter-spacing: 0.8px;
   font-weight: 200;
   font-size: 18px;
   text-decoration: none;
   color: #fff;
   &:hover {
     text-decoration: underline;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .parallax-container {
+    height: 100%;
+    font-size: 14px;
+  }
+  .subtitle {
+    font-size: 18px;
+  }
+  .logo {
+    font-size: 20px;
+  }
+  a {
+    font-size: 16px;
   }
 }
 </style>
